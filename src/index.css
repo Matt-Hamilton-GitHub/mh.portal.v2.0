@@ -1,0 +1,133 @@
+@import "tailwindcss";
+
+
+:root {
+}
+a {
+}
+a:hover {
+  color: #535bf2;
+}
+
+body {
+}
+
+h1 {
+}
+
+
+html {
+  scroll-behavior: smooth;
+  background: #020608;
+}
+::-webkit-scrollbar {
+  width: 2px;
+}
+::-webkit-scrollbar-thumb {
+  background: #00ff9d20;
+}
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-14px);
+  }
+}
+@keyframes spinSlow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes pulseDot {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.35;
+    transform: scale(0.75);
+  }
+}
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+.hero-1 {
+  animation: fadeUp 0.7s ease both;
+}
+.hero-2 {
+  animation: fadeUp 0.8s ease 0.1s both;
+}
+.hero-3 {
+  animation: fadeUp 0.8s ease 0.22s both;
+}
+.hero-4 {
+  animation: fadeUp 0.8s ease 0.35s both;
+}
+.orbital {
+  animation: spinSlow 25s linear infinite;
+}
+.orbital-inner {
+  animation: spinSlow 18s linear infinite reverse;
+}
+.floaty {
+  animation: float 6s ease-in-out infinite;
+}
+.pulse-dot {
+  animation: pulseDot 2s infinite;
+}
+.marquee-track {
+  animation: marquee 22s linear infinite;
+}
+.nav-link:hover {
+  color: #00ff9d !important;
+}
+.skill-pill:hover {
+  background: rgba(0, 255, 157, 0.08) !important;
+  border-color: rgba(0, 255, 157, 0.4) !important;
+  color: #00ff9d !important;
+}
+.proj-card:hover {
+  transform: translateY(-6px);
+}
+.exp-row:hover .exp-number {
+  color: #00ff9d20 !important;
+}
+.cta-btn:hover {
+  border-color: #00ff9d !important;
+  color: #00ff9d !important;
+  box-shadow: 0 0 30px rgba(0, 255, 157, 0.1) !important;
+}
+.send-btn:hover {
+  background: #00ff9d !important;
+  color: #020608 !important;
+}
+input::placeholder,
+textarea::placeholder {
+  color: #2a4060;
+}
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: rgba(0, 255, 157, 0.4) !important;
+}
