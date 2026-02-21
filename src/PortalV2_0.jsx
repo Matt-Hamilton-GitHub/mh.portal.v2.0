@@ -1,4 +1,5 @@
 import HeroSection from "./components/HeroSection"
+import Marquee from "./components/Marquee"
 import Navbar from "./components/Navbar"
 
 
@@ -14,6 +15,7 @@ const PortalV2_0 = () => {
     >
       <Navbar />
       <HeroSection />
+      <Marquee />
     </div>
   )
 }

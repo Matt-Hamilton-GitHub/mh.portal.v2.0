@@ -3,7 +3,7 @@ export const ME = {
   name: "MATT HAMILTON",
   initials: "MC",
   title: "Software Engineer",
-  tagline: ["I build  things", "that matter,", "at scale."],
+  tagline: ["I build things", "that matter,", "at scale."],
   manifesto: "Code is craft. Every system I design carries the weight of intention — performance & security aren't incidental, they're the point. I believe the best engineers don't just ship features, they shape futures.",
   about: "Six years ago I wrote my first real production bug and fixed it at 2 AM with cold coffee and a rubber duck. That feeling — the deep satisfaction of making something complex finally work — never left. Today I lead architecture on systems that process millions of events daily, mentor engineers early in their careers, and stay restless about what comes next.",
 };
@@ -46,4 +46,4 @@ export const COURSEWORK = [
   "EE 126 — Probability & Random Processes",
 ];
 
-export const MARQUEE_WORDS = ["React","Go","Rust","Kafka","TypeScript","Kubernetes","Redis","Next.js","gRPC","WebAssembly","PostgreSQL","AWS","Docker","Terraform"];
+export const MARQUEE_WORDS = ["React","Python","Kafka","TypeScript","Kubernetes","Redis","Next.js","C","Cybersecurity","PostgreSQL","AWS","Docker","Firebase", "Auth0", "Stripe","MangoDB"];
