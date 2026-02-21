@@ -1,3 +1,4 @@
+import HeroSection from "./components/HeroSection"
 import Navbar from "./components/Navbar"
 
 
@@ -12,6 +13,7 @@ const PortalV2_0 = () => {
       }}
     >
       <Navbar />
+      <HeroSection />
     </div>
   )
 }
