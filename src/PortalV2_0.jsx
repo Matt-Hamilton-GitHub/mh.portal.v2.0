@@ -1,6 +1,10 @@
+import AboutSection from "./components/AboutSection"
+import ExperienceSection from "./components/ExperienceSection"
+import Footer from "./components/Footer"
 import HeroSection from "./components/HeroSection"
 import Marquee from "./components/Marquee"
 import Navbar from "./components/Navbar"
+import SkillsSection from "./components/SkillsSection"
 
 
 const PortalV2_0 = () => {
@@ -16,6 +20,11 @@ const PortalV2_0 = () => {
       <Navbar />
       <HeroSection />
       <Marquee />
+      <AboutSection />
+      <SkillsSection />
+      <ExperienceSection />
+
+      <Footer />
     </div>
   )
 }

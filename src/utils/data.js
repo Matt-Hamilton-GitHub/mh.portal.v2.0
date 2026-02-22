@@ -9,24 +9,24 @@ export const ME = {
 };
 
 export const SKILLS = [
-  { category: "Languages", icon: "⌨", items: ["TypeScript", "JavaScript", "PHP", "Python", "Rust", "SQL"] },
-  { category: "Frontend",   icon: "◻", items: ["React", "Next.js", "WebGL", "CSS/Animation", "GraphQL", "Vite"] },
-  { category: "Backend & Infra", icon: "⬡", items: ["Node.js", "gRPC", "Apache Kafka", "Redis", "PostgreSQL", "ClickHouse"] },
-  { category: "Cloud & DevOps",  icon: "△", items: ["AWS", "GCP", "Kubernetes", "Docker", "Terraform", "CI/CD"] },
+  { category: "Languages", icon: "⌨", items: ["TypeScript", "JavaScript", "PHP", "Python", "C#", "SQL"] },
+  { category: "Frontend",   icon: "◻", items: ["React", "Next.js", "WebGL", "CSS/Animation", "GraphQL", "Vite", "Tailwind"] },
+  { category: "Backend & Infra", icon: "⬡", items: ["Node.js", "gRPC", "Apache Kafka", "Redis", "PostgreSQL", "MangoDB"] },
+  { category: "Cloud & DevOps",  icon: "△", items: ["AWS", "Kubernetes", "Docker", "Terraform", "CI/CD"] },
 ];
 
 export const EXPERIENCE = [
   {
-    company: "Rausser College of Natural Resources", role: "Senior Software Engineer", period: "2022 – Present", highlight: "50M+ events/day",
-    desc: "Lead architect on a real-time data pipeline that became the backbone of the platform. Redesigned the microservice topology and introduced Redis-based caching that cut end-to-end latency by 40%. Grew the infrastructure team from 3 to 9 engineers.",
+    company: "Rausser College of Natural Resources", role: "Senior Software Engineer", period: "AUG 2023 – Present", highlight: ["Architected Platform Serving 2K+ users", "Scaled APIs to 0.7M+ requests/day","Cut Latency by 20%"],
+    desc: "Led the development of full-stack web applications, owning architecture decisions from front-end experience to backend infrastructure. Architected scalable APIs, optimized data pipelines, and integrated cloud and real-time services to significantly improve performance, reliability, and responsiveness. Championed clean code practices, streamlined workflows, and drove code review standards to ensure a maintainable and high-quality codebase. Partnered cross-functionally in Agile environments, accelerating delivery while strengthening system scalability and long-term technical strategy.",
   },
   {
-    company: "UC Berkeley", role: "Software Engineer Instructore (CubStart)", period: "2020 – 2022", highlight: "200+ enterprise clients",
-    desc: "Built the multi-tenant SaaS foundation serving enterprise clients across finance and healthcare. Introduced a CI/CD pipeline that compressed deployment time from 2 hours to 8 minutes — a change that compounded every single day.",
+    company: "UC Berkeley", role: "Software Engineer Instructore (CubStart)", period: "JAN 2023 – DEC 2023", highlight: ["Mentored 50+ Students in Full-Stack Development", "Elevated Code Quality Through Structured Reviews","Delivered Weekly High-Impact Technical Lectures"],
+    desc: "Led instruction for a Full-Stack Web Development course at UC Berkeley DeCal, mentoring and training aspiring engineers while driving measurable improvements in code quality, performance optimization, and system design best practices.",
   },
   {
-    company: "Axiom Digital", role: "Junior Developer", period: "2018 – 2020", highlight: "Perf: 52 → 94",
-    desc: "Where I learned to take things seriously. Rebuilt the product suite's frontend performance from the ground up and fell in love with the craft of doing things right.",
+    company: "Yalantis", role: "Junior Developer", period: "MAR 2020 – AUG 2021", highlight: ["Reduced Load Times by 30% (SSR, SSG, PPR)", "Integrated REST & GraphQL APIs Handling 500K+ Req/Month", "Participated in 50+ Code Reviews","45+ Agile Pair Programming Sessions"],
+    desc: "Where I learned to take things seriously. I Developed and optimized React/Next.js web applications, contributing to front-end architecture and improving performance. Implemented SSR, SSG, and lazy loading to speed up load times and enhance SEO. Worked with RESTful and GraphQL APIs and managed state using Redux and Zustand to ensure smooth data flow. Participated in code reviews, pair programming, and Agile sprints, gaining experience in building scalable and maintainable applications.",
   },
 ];
 
@@ -39,11 +39,11 @@ export const PROJECTS = [
 
 export const COURSEWORK = [
   "CS 189 — Machine Learning",
-  "CS 186 — Database Systems",
-  "CS 162 — Operating Systems",
+  "CS 161 — Computer Security",
+  "CS 169 — Artificial Intelligence",
   "CS 169 — Software Engineering",
   "CS 170 — Efficient Algorithms",
-  "EE 126 — Probability & Random Processes",
+  "CS 70 — Probability & Random Processes",
 ];
 
 export const MARQUEE_WORDS = ["React","Python","Kafka","TypeScript","Kubernetes","Redis","Next.js","C","Cybersecurity","PostgreSQL","AWS","Docker","Firebase", "Auth0", "Stripe","MangoDB"];

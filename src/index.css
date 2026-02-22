@@ -3,7 +3,7 @@
 
 :root {
     --main-matrix-green: #00ff9d;
-    --second-grey: #6283a8;
+    --second-grey: #acbed3;
 }
 a {
 }
@@ -113,7 +113,7 @@ html {
   transform: translateY(-6px);
 }
 .exp-row:hover .exp-number {
-  color: #00ff9d20 !important;
+  color: #00ff9d99 !important;
 }
 .cta-btn:hover {
   border-color: #00ff9d !important;
