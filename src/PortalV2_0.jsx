@@ -1,4 +1,5 @@
 import AboutSection from "./components/AboutSection"
+import EducationSection from "./components/EducationSection"
 import ExperienceSection from "./components/ExperienceSection"
 import Footer from "./components/Footer"
 import HeroSection from "./components/HeroSection"
@@ -23,7 +24,7 @@ const PortalV2_0 = () => {
       <AboutSection />
       <SkillsSection />
       <ExperienceSection />
-
+      <EducationSection />
       <Footer />
     </div>
   )

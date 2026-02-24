@@ -40,7 +40,7 @@ export const PROJECTS = [
 export const COURSEWORK = [
   "CS 189 — Machine Learning",
   "CS 161 — Computer Security",
-  "CS 169 — Artificial Intelligence",
+  "CS 188 — Artificial Intelligence",
   "CS 169 — Software Engineering",
   "CS 170 — Efficient Algorithms",
   "CS 70 — Probability & Random Processes",
