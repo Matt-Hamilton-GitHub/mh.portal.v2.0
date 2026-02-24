@@ -5,6 +5,7 @@ import Footer from "./components/Footer"
 import HeroSection from "./components/HeroSection"
 import Marquee from "./components/Marquee"
 import Navbar from "./components/Navbar"
+import ProjectsSection from "./components/ProjectsSection"
 import SkillsSection from "./components/SkillsSection"
 
 
@@ -24,6 +25,7 @@ const PortalV2_0 = () => {
       <AboutSection />
       <SkillsSection />
       <ExperienceSection />
+      <ProjectsSection />
       <EducationSection />
       <Footer />
     </div>
