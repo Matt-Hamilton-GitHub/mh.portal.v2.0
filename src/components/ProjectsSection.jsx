@@ -8,7 +8,7 @@ const ProjectsSection = () => {
               <Reveal>
                 <SectionLabel num="04" label="PROJECTS" />
                 <h2 className="mb-16" style={{ fontFamily: "'Clash Display', sans-serif", fontSize: "clamp(2.5rem,5vw,5rem)", fontWeight: 700, color: "#e8f0f8", letterSpacing: "-0.04em", lineHeight: 1 }}>
-                  Things I<br />made real.
+                  Recent things I<br />made real.
                 </h2>
               </Reveal>
               <div className="grid grid-cols-2" style={{ gap: "1px", background: "#0d1e2e" }}>
