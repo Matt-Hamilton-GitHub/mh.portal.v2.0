@@ -1,32 +1,32 @@
 import { useState } from "react";
 import { Reveal, SectionLabel } from "../utils/utils";
-import emailjs from '@emailjs/browser'
+import emailjs from "@emailjs/browser";
 
 const ContactSection = () => {
   const [sent, setSent] = useState(false);
   const [form, setForm] = useState({ name: "", email: "", msg: "" });
   
-  const handleSubmit = () => {
+  const serviceId = import.meta.env.VITE_MAILJS_SERVICE_ID;
+  const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+  const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+  
+  const handleSubmit = (e) => {
     e.preventDefault();
-    emailjs.send(
-    'YOUR_SERVICE_ID',   
-    'YOUR_TEMPLATE_ID',
-    {from_name: form.name,
-      from_email: from.email,
-      message: from.msg
-    },
-    'YOUR_PUBLIC_KEY'
-    )
-    .then(() => setSent(true))
-    .catch((err) => console.log(err))
-  } 
+
+
+    emailjs
+      .send(
+        serviceId,
+        templateId,
+        { form_name: form.name, form_email: form.email, message: form.msg },
+        publicKey,
+      )
+      .then(() => setSent(true))
+      .catch((err) => console.log(err));
+  };
 
   return (
-    <section
-      id="contact"
-      className="relative py-32 px-12 pb-40 z-1"
-     
-    >
+    <section id="contact" className="relative py-32 px-12 pb-40 z-1">
       <div className="max-w-5xl mx-auto">
         <Reveal>
           <div className="text-center mb-20">
