@@ -23,7 +23,7 @@ export default function HeroSection() {
             </h1>
           </div>
 
-          <p className="hero-3 leading-relaxed font-light max-w-sm" style={{ color: "#7a9ab8", fontSize: "1rem" }}>
+          <p className="hero-3 leading-relaxed font-light max-w-sm lg:max-w-md" style={{ color: "#7a9ab8", fontSize: "1rem" }}>
             {ME.manifesto}
           </p>
 

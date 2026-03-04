@@ -67,7 +67,7 @@ const ContactSection = () => {
                   color: "#4a6a8a",
                 }}
               >
-                I'll be in touch within 24 hours.
+                I'll be in touch with you soon!
               </p>
             </div>
           </Reveal>

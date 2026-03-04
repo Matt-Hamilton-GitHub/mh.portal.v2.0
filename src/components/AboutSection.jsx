@@ -21,9 +21,9 @@ const AboutSection = () => {
                   <p className="leading-loose font-light max-w-2xl" style={{ color: "#7a9ab8", fontSize: "1.05rem" }}>{ME.about}</p>
                 </Reveal>
                 <Reveal delay={0.22}>
-                  <div className="flex gap-14 mt-12">
+                  <div className="flex gap-14 mt-12 max-w-2xl justify-start  ">
                     {[["San Francisco","Location"],["Full Stack","Specialty"],["Open Source","Mindset"]].map(([v,l]) => (
-                      <div key={l}>
+                      <div key={l} className="">
                         <div style={{ fontFamily: "'Clash Display', sans-serif", fontSize: "1.25rem", fontWeight: 600, color: "#e8f0f8" }}>{v}</div>
                         <div style={{ fontFamily: "'Share Tech Mono', monospace", fontSize: "0.7rem", color: "var(--second-grey)", letterSpacing: "0.2em", marginTop: "0.3rem" }}>{l}</div>
                       </div>

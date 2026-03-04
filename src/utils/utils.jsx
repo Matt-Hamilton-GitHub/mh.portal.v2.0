@@ -29,7 +29,7 @@
  /* ─── SECTION LABEL ──────────────────────────────────────── */
 export function SectionLabel({ num, label }) {
   return (
-    <p className="mb-4 tracking-widest" style={{ fontFamily: "'Share Tech Mono', monospace", fontSize: "0.68rem", color: "#00f09d60" }}>
+    <p className="mb-4 tracking-widest text-(--main-matrix-green)" style={{ fontFamily: "'Share Tech Mono', monospace", fontSize: "0.68rem" }}>
       // {num} — {label}
     </p>
   );

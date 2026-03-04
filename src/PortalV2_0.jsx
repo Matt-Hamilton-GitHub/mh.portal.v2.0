@@ -1,4 +1,5 @@
 import AboutSection from "./components/AboutSection"
+import ContactSection from "./components/ContactSection"
 import EducationSection from "./components/EducationSection"
 import ExperienceSection from "./components/ExperienceSection"
 import Footer from "./components/Footer"
@@ -27,6 +28,7 @@ const PortalV2_0 = () => {
       <ExperienceSection />
       <ProjectsSection />
       <EducationSection />
+      <ContactSection />
       <Footer />
     </div>
   )

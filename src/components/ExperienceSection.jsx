@@ -33,11 +33,11 @@ const ExperienceSection = () => {
                       </div>
                     </div>
                     <div>
-                      <div className="mb-3 italic font-light" style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.95rem", color: "#4a6a8a" }}>{e.role}</div>
+                      <div className="mb-3 italic font-bold text-[white]" style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "1.2rem"}}>{e.role}</div>
                       <p className="leading-loose font-light" style={{ color: "var(--second-grey)", fontSize: "1.1rem" }}>{e.desc}</p>
                     </div>
                     <div className="exp-number text-right select-none transition-colors duration-300"
-                      style={{ fontFamily: "'Clash Display', sans-serif", fontSize: "4.5rem", fontWeight: 700, color: "#0f1e2e", lineHeight: 1 }}>
+                      style={{ fontFamily: "'Clash Display', sans-serif", fontSize: "4.5rem", fontWeight: 700, color: "#0f1e2e", lineHeight: 1,  textShadow: ' 1px 1px 2px black, 0 0 1px white, 0 0 20px var(--main-matrix-green)' }}>
                       0{i + 1}
                     </div>
                   </div>
