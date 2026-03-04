@@ -5,7 +5,7 @@ export const ME = {
   title: "Software Engineer",
   tagline: ["I build things", "that matter,", "at scale."],
   manifesto: "Code is craft. Every system I design carries the weight of intention — performance & security aren't incidental, they're the point. I believe the best engineers don't just ship features, they shape futures.",
-  about: "Six years ago I wrote my first real production bug and fixed it at 2 AM with cold coffee and a rubber duck. That feeling — the deep satisfaction of making something complex finally work — never left. Today I lead architecture on systems that process millions of events daily, mentor engineers early in their careers, and stay restless about what comes next.",
+  about: "I started chasing performance metrics on the front-end and ended up reading compiler theory on weekends. Full-stack by trade, systems thinker and problem-solver by obsession. I've led architecture across the whole stack, taught the next generation of engineers at UC Berkeley, and I still write C when I want to remember what's really going on underneath. Security isn't a layer I add at the end. It's a question I ask at the beginning."
 };
 
 export const SKILLS = [
@@ -46,4 +46,4 @@ export const COURSEWORK = [
   "CS 70 — Probability & Random Processes",
 ];
 
-export const MARQUEE_WORDS = ["React","Python","Kafka","TypeScript","Kubernetes","Redis","Next.js","C","Cybersecurity","PostgreSQL","AWS","Docker","Firebase", "Auth0", "Stripe","MangoDB"];
+export const MARQUEE_WORDS = ["Kafka","Python","React","TypeScript","Kubernetes","Redis","Next.js","C","Cybersecurity","PostgreSQL","AWS","Docker","Firebase", "Auth0", "Stripe","MangoDB"];

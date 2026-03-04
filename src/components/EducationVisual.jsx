@@ -1,4 +1,3 @@
-import React from 'react'
 
 function EducationVisual() {
   return (
@@ -51,8 +50,8 @@ function EducationVisual() {
                       <div style={{ fontFamily: "'Share Tech Mono', monospace", fontSize: "0.48rem", color: "rgba(253,181,21,.5)", letterSpacing: "0.08em", marginTop: "0.2rem" }}>EST. 1868</div>
                     </div>
                     {/* grad card */}
-                    <div className="absolute px-5 py-4" style={{ bottom: "-1.5rem", left: "-1.5rem", background: "#060d14", border: "1px solid #0d1e2e", borderRadius: "3px", boxShadow: "0 8px 40px rgba(0,0,0,.5)" }}>
-                      <div style={{ fontFamily: "'Share Tech Mono', monospace", fontSize: "0.6rem", color: "#243040", letterSpacing: "0.15em", marginBottom: "0.2rem" }}>GRADUATED</div>
+                    <div className="absolute px-5 py-4" style={{ bottom: "-3.5rem", left: "-1.5rem", background: "#060d14", border: "1px solid #0d1e2e", borderRadius: "3px", boxShadow: "0 8px 40px rgba(0,0,0,.5)" }}>
+                      <div style={{ fontFamily: "'Share Tech Mono', monospace", fontSize: "0.6rem", color: "var(--second-grey)", letterSpacing: "0.15em", marginBottom: "0.2rem" }}>GRADUATED</div>
                       <div style={{ fontFamily: "'Clash Display', sans-serif", fontSize: "1.1rem", fontWeight: 700, color: "#e8f0f8" }}>Class of 2024</div>
                     </div>
                   </div>

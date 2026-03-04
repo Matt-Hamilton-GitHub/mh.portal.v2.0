@@ -1,14 +1,31 @@
 import { useState } from "react";
 import { Reveal, SectionLabel } from "../utils/utils";
+import emailjs from '@emailjs/browser'
 
 const ContactSection = () => {
   const [sent, setSent] = useState(false);
   const [form, setForm] = useState({ name: "", email: "", msg: "" });
+  
+  const handleSubmit = () => {
+    e.preventDefault();
+    emailjs.send(
+    'YOUR_SERVICE_ID',   
+    'YOUR_TEMPLATE_ID',
+    {from_name: form.name,
+      from_email: from.email,
+      message: from.msg
+    },
+    'YOUR_PUBLIC_KEY'
+    )
+    .then(() => setSent(true))
+    .catch((err) => console.log(err))
+  } 
+
   return (
     <section
       id="contact"
-      className="relative py-32 px-12 pb-40"
-      style={{ zIndex: 1 }}
+      className="relative py-32 px-12 pb-40 z-1"
+     
     >
       <div className="max-w-5xl mx-auto">
         <Reveal>
@@ -74,10 +91,7 @@ const ContactSection = () => {
         ) : (
           <Reveal delay={0.1}>
             <form
-              onSubmit={(e) => {
-                e.preventDefault();
-                setSent(true);
-              }}
+              onSubmit={handleSubmit}
               className="max-w-xl mx-auto flex flex-col gap-4"
             >
               <div className="grid grid-cols-2 gap-4">

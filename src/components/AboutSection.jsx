@@ -3,13 +3,13 @@ import { ME } from "../utils/data"
 import { Reveal, SectionLabel } from "../utils/utils"
 const AboutSection = () => {
   return (
-    <section id="about" className="relative py-36 px-12" style={{ zIndex: 1 }}>
-            <div className="max-w-5xl mx-auto grid gap-16" style={{ gridTemplateColumns: "80px 1fr" }}>
-              <Reveal>
+    <section id="about" className="relative flex  justify-center w-full py-36 px-12" style={{ zIndex: 1 }}>
+            <div className="max-w-5xl mx-auto gap-16" >
+              {/* <Reveal>
                 <div style={{ writingMode: "vertical-rl", transform: "rotate(180deg)", fontFamily: "'Share Tech Mono', monospace", fontSize: "0.65rem", color: "#0d1e2e", letterSpacing: "0.3em", userSelect: "none", paddingTop: "0.5rem" }}>
                   ABOUT — 01
                 </div>
-              </Reveal>
+              </Reveal> */}
               <div>
                 <Reveal>
                   <SectionLabel num="01" label="ABOUT" />

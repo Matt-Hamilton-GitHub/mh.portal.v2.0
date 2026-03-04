@@ -18,7 +18,16 @@ export function MatrixRain() {
       ctx.fillRect(0, 0, canvas.width, canvas.height);
       drops.forEach((y, i) => {
         const ch = GLYPHS[Math.floor(Math.random() * GLYPHS.length)];
-        ctx.fillStyle = i % 7 === 0 ? "#00ff9d40" : "#00ff9d14";
+        const rand = Math.random();
+        let color;
+        if (rand > 0.97)
+          color = "#00ff9dff"; // rare bright head
+        else if (rand > 0.85)
+          color = "#00ff9d70"; // medium
+        else if (rand > 0.6)
+          color = "#00ff9d30"; // dim
+        else color = "#00ff9d12"; // very faint trail
+        ctx.fillStyle = color;
         ctx.font = "14px monospace";
         ctx.fillText(ch, i * 20, y * 20);
         if (y * 20 > canvas.height && Math.random() > 0.975) drops[i] = 0;
@@ -90,41 +99,56 @@ export function MatrixName({ name }) {
   );
 }
 
-export function CustomCursor () {
-   const [cursor, setCursor] = useState({ x: -100, y: -100 });
 
+
+export function CustomCursor() {
+  const [pos, setPos] = useState({ x: -100, y: -100 });
+  const [clicking, setClicking] = useState(false);
 
   useEffect(() => {
-    const mv = e => setCursor({ x: e.clientX, y: e.clientY });
+    const mv = (e) => setPos({ x: e.clientX, y: e.clientY });
+    const md = () => setClicking(true);
+    const mu = () => setClicking(false);
     window.addEventListener("mousemove", mv);
-    return () => window.removeEventListener("mousemove", mv);
+    window.addEventListener("mousedown", md);
+    window.addEventListener("mouseup", mu);
+    return () => {
+      window.removeEventListener("mousemove", mv);
+      window.removeEventListener("mousedown", md);
+      window.removeEventListener("mouseup", mu);
+    };
   }, []);
+
+  const size = clicking ? 14 : 20;
+  const thickness = 1.5;
+
+  const barStyle = {
+    position: "fixed",
+    pointerEvents: "none",
+    background: "#00ff9d",
+    mixBlendMode: "difference",
+    zIndex: 9999,
+    transition: "width 0.12s, height 0.12s",
+  };
+
   return (
     <>
-      <div
-        className="fixed rounded-full pointer-events-none"
-        style={{
-          left: cursor.x - 5,
-          top: cursor.y - 5,
-          width: 10,
-          height: 10,
-          background: "#00ff9d",
-          zIndex: 9999,
-          mixBlendMode: "difference",
-        }}
-      />
-      <div
-        className="fixed rounded-full pointer-events-none border"
-        style={{
-          left: cursor.x - 18,
-          top: cursor.y - 18,
-          width: 36,
-          height: 36,
-          borderColor: "rgba(0,255,157,.2)",
-          zIndex: 9998,
-          transition: "left .12s, top .12s",
-        }}
-      />
+      {/* Horizontal bar */}
+      <div style={{
+        ...barStyle,
+        left: pos.x - size / 2,
+        top: pos.y - thickness / 2,
+        width: size,
+        height: thickness,
+      }} />
+      {/* Vertical bar */}
+      <div style={{
+        ...barStyle,
+        left: pos.x - thickness / 2,
+        top: pos.y - size / 2,
+        width: thickness,
+        height: size,
+      }} />
     </>
   );
-};
+}

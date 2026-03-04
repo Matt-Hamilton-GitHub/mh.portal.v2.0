@@ -3,6 +3,7 @@
  
 }
 
+textarea::placeholder, input::placeholder { color: #59789e; }
 .logo {
  
 }

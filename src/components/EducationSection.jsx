@@ -23,7 +23,7 @@ const EducationSection = () => {
                     </h2>
                   </Reveal>
                   <Reveal delay={0.1}>
-                    <p className="italic font-light mb-8" style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.9rem", color: "#3a5068" }}>B.S. Computer Science & Electrical Engineering</p>
+                    <p className="italic font-light mb-8" style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.9rem", color: "var(--main-matrix-green)" }}>B.S. Computer Science & Electrical Engineering</p>
                   </Reveal>
                   <Reveal delay={0.15}>
                     <p className="leading-loose font-light mb-12" style={{ color: "#7a9ab8", fontSize: "0.95rem" }}>
@@ -32,7 +32,7 @@ const EducationSection = () => {
                   </Reveal>
                   <Reveal delay={0.2}>
                     <div style={{ borderTop: "1px solid #0d1e2e", paddingTop: "2rem" }}>
-                      <div className="mb-6" style={{ fontFamily: "'Share Tech Mono', monospace", fontSize: "0.62rem", color: "#1e3040", letterSpacing: "0.28em" }}>RELEVANT COURSEWORK</div>
+                      <div className="mb-6" style={{ fontFamily: "'Share Tech Mono', monospace", fontSize: "0.62rem", color: "var(--second-grey)", letterSpacing: "0.28em" }}>RELEVANT COURSEWORK</div>
                       <div className="grid grid-cols-2 gap-3">
                         {COURSEWORK.map((c, i) => (
                           <div key={i} className="flex items-baseline gap-3">
