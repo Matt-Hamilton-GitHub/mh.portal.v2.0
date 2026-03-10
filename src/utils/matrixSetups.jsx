@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 
 /* ─── MATRIX RAIN ────────────────────────────────────────── */
 export const GLYPHS =
-  "アイウエオカキクケコサシスセソタチツテトナニヌネノ01ABCDEF!@#$%^&*";
+  "01";
 
 export function MatrixRain() {
   const canvasRef = useRef(null);

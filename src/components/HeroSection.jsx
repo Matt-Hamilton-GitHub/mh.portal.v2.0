@@ -1,14 +1,15 @@
 
-import { scrollTo} from "../utils/utils"
+import {scrollTo} from "../utils/utils"
 import { MatrixName} from "../utils/matrixSetups";
 import { ME } from "../utils/data";
 
 export default function HeroSection() {
 
   return (
-      <section id="home" className="min-h-screen grid relative w-full z-1" >
+      <section id="home" className="home-p min-h-screen grid relative w-full z-1" >
         {/* Left */}
         <div className="w-full flex flex-col justify-center items-center px-12 pt-36 pb-16">
+        
           <div className="hero-1 flex items-center gap-3 mb-10">
             <div className="rounded-full pulse-dot bg-(--main-matrix-green)" style={{ width: 7, height: 7 }} />
             <span className="text-(--main-matrix-green) tracking-[0.3em] text-[0.72rem] "style={{ fontFamily: "'Share Tech Mono', monospace",  }}>AVAILABLE FOR WORK · 2026</span>
@@ -37,6 +38,7 @@ export default function HeroSection() {
               GET IN TOUCH ↗
             </button>
           </div>
+
         </div>
 
         {/* Right — orbital */}
@@ -61,6 +63,7 @@ export default function HeroSection() {
             </div>
           ))}
         </div> */}
+        
       </section>
       
   );
