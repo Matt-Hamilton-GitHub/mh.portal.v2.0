@@ -1,21 +1,35 @@
 import { useState, useEffect, useRef } from "react";
 
 /* ─── MATRIX RAIN ────────────────────────────────────────── */
-export const GLYPHS =
-  "01";
+export const GLYPHS = "01";
 
 export function MatrixRain() {
   const canvasRef = useRef(null);
+
   useEffect(() => {
     const canvas = canvasRef.current;
     const ctx = canvas.getContext("2d");
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+
+    let drops = []
+
+    const resize = () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+
     const cols = Math.floor(canvas.width / 20);
-    const drops = Array(cols).fill(1);
+    drops = Array(cols).fill(1);
+    };
+
+    resize();
+
+    window.addEventListener("resize", resize);
+
+
+
     const id = setInterval(() => {
       ctx.fillStyle = "rgba(0,0,0,0.05)";
       ctx.fillRect(0, 0, canvas.width, canvas.height);
+
       drops.forEach((y, i) => {
         const ch = GLYPHS[Math.floor(Math.random() * GLYPHS.length)];
         const rand = Math.random();
@@ -34,7 +48,11 @@ export function MatrixRain() {
         drops[i]++;
       });
     }, 60);
-    return () => clearInterval(id);
+    return () => {
+      
+      clearInterval(id);
+      window.removeEventListener("resize", resize);
+    }
   }, []);
   return (
     <canvas
@@ -99,8 +117,6 @@ export function MatrixName({ name }) {
   );
 }
 
-
-
 export function CustomCursor() {
   const [pos, setPos] = useState({ x: -100, y: -100 });
   const [clicking, setClicking] = useState(false);
@@ -134,21 +150,25 @@ export function CustomCursor() {
   return (
     <>
       {/* Horizontal bar */}
-      <div style={{
-        ...barStyle,
-        left: pos.x - size / 2,
-        top: pos.y - thickness / 2,
-        width: size,
-        height: thickness,
-      }} />
+      <div
+        style={{
+          ...barStyle,
+          left: pos.x - size / 2,
+          top: pos.y - thickness / 2,
+          width: size,
+          height: thickness,
+        }}
+      />
       {/* Vertical bar */}
-      <div style={{
-        ...barStyle,
-        left: pos.x - thickness / 2,
-        top: pos.y - size / 2,
-        width: thickness,
-        height: size,
-      }} />
+      <div
+        style={{
+          ...barStyle,
+          left: pos.x - thickness / 2,
+          top: pos.y - size / 2,
+          width: thickness,
+          height: size,
+        }}
+      />
     </>
   );
 }
