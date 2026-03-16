@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 
 /* ─── MATRIX RAIN ────────────────────────────────────────── */
-export const GLYPHS = "01";
+export const GLYPHS = "アイウエオカキクケコサシスセソタチツテトナニヌネノ01ABCDEF!@#$%^&*";
 
 export function MatrixRain() {
   const canvasRef = useRef(null);
@@ -10,21 +10,18 @@ export function MatrixRain() {
     const canvas = canvasRef.current;
     const ctx = canvas.getContext("2d");
 
-    let drops = []
+    let drops = [];
 
     const resize = () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
 
-    const cols = Math.floor(canvas.width / 20);
-    drops = Array(cols).fill(1);
+      const cols = Math.floor(canvas.width / 20);
+      drops = Array(cols).fill(1);
     };
 
     resize();
-
     window.addEventListener("resize", resize);
-
-
 
     const id = setInterval(() => {
       ctx.fillStyle = "rgba(0,0,0,0.05)";
@@ -49,10 +46,9 @@ export function MatrixRain() {
       });
     }, 60);
     return () => {
-      
       clearInterval(id);
       window.removeEventListener("resize", resize);
-    }
+    };
   }, []);
   return (
     <canvas
