@@ -4,9 +4,11 @@ export const ME = {
   initials: "MC",
   title: "Software Engineer",
   tagline: ["I build things", "that matter,", "at scale."],
-  manifesto: "Code is craft. Every system I design carries the weight of intention — performance & security aren't incidental, they're the point. I believe the best engineers don't just ship features, they shape futures.",
-  about: "I started chasing performance metrics on the front-end and ended up reading compiler theory on weekends. Full-stack by trade, systems thinker and problem-solver by obsession. I've led architecture across the whole stack, taught the next generation of engineers at UC Berkeley, and I still write C when I want to remember what's really going on underneath. Security isn't a layer I add at the end. It's a question I ask at the beginning."
-};
+  manifesto: "Code is craft. Every system I design carries the weight of intention. Performance & Security aren't incidental, they're the point. I believe the best engineers don't just ship features, they shape futures.",
+  about: `
+  I'm Matt, a software engineer who genuinely loves what he does. My background runs through mathematics, physics, electrical engineering, and computer science. Each step intentional, each one making me a better engineer than the last. 
+  I'm drawn to software because it's the rare place where rigorous thinking and creative instinct belong in the same room. I love building things that are fast, secure, and, most importantly, actually pleasant to use.
+  User experience, trust, and safety sit at the core of everything I build. Because behind every interface is a real person, and they deserve better than an afterthought.`}
 
 export const SKILLS = [
   { category: "Languages", icon: "⌨", items: ["TypeScript", "JavaScript", "PHP", "Python", "C#", "SQL"] },
