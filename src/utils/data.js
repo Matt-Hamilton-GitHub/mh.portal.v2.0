@@ -40,12 +40,14 @@ export const PROJECTS = [
 ];
 
 export const COURSEWORK = [
-  "CS 189 — Machine Learning",
   "CS 161 — Computer Security",
-  "CS 188 — Artificial Intelligence",
+  "CS 171 — Cryptography",
+  "CS 160 — User Interface Design and Development",
+  "CS 70 — Discrete Mathematics and Probability Theory",
+  "CS 168 — The Internet: Architecture and Protocols",
   "CS 169 — Software Engineering",
-  "CS 170 — Efficient Algorithms",
-  "CS 70 — Probability & Random Processes",
+  "CS 170 — Efficient Algorithms and Intractable Problems",
+  "CS 188 — Artificial Intelligence",
 ];
 
 export const MARQUEE_WORDS = ["Kafka","Python","React","TypeScript","Kubernetes","Redis","Next.js","C","Cybersecurity","PostgreSQL","AWS","Docker","Firebase", "Auth0", "Stripe","MangoDB"];
