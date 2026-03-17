@@ -18,10 +18,10 @@ const AboutSection = () => {
                   </h2>
                 </Reveal>
                 <Reveal delay={0.12}>
-                  <p className="leading-loose font-light max-w-2xl" style={{ color: "#7a9ab8", fontSize: "1.05rem" }}>{ME.about}</p>
+                  <p className="leading-loose font-light max-w-2xl text-[.9rem] sm:text-[1.05rem]" style={{ color: "#7a9ab8" }}>{ME.about}</p>
                 </Reveal>
                 <Reveal delay={0.22}>
-                  <div className="flex gap-14 mt-12 max-w-2xl justify-start items-center ">
+                  <div className="flex flex-wrap gap-14 mt-12 max-w-2xl justify-start items-center ">
                     {[["San Francisco","Location"],["Full Stack","Specialty"],["Open Source & Ownership","Mindset"]].map(([v,l]) => (
                       <div key={l} className="">
                         <div style={{ fontFamily: "'Clash Display', sans-serif", fontSize: "1.25rem", fontWeight: 600, color: "#e8f0f8" }}>{v}</div>
