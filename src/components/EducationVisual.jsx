@@ -1,8 +1,8 @@
 
 function EducationVisual() {
   return (
-    <div className="relative">
-                    <div className="relative overflow-hidden" style={{ aspectRatio: "3/4", background: "linear-gradient(160deg,#0a1828,#0d1e30,#060f18)", borderRadius: "4px", border: "1px solid #0d1e2e" }}>
+    <div className="relative min-w-70 block">
+                    <div className="relative " style={{ aspectRatio: "3/4", background: "linear-gradient(160deg,#0a1828,#0d1e30,#060f18)", borderRadius: "4px", border: "1px solid #0d1e2e" }}>
                       <svg viewBox="0 0 320 430" width="100%" height="100%" style={{ position: "absolute", inset: 0 }} xmlns="http://www.w3.org/2000/svg">
                         <defs>
                           <radialGradient id="glow" cx="50%" cy="55%" r="50%"><stop offset="0%" stopColor="#00ff9d" stopOpacity="0.07"/><stop offset="100%" stopColor="#04080c" stopOpacity="0"/></radialGradient>

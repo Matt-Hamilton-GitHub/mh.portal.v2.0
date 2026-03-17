@@ -9,7 +9,7 @@ const EducationSection = () => {
               <Reveal>
                 <SectionLabel num="05" label="EDUCATION" />
               </Reveal>
-              <div className="grid gap-24 items-center mt-4" style={{ gridTemplateColumns: "1fr 1fr" }}>
+              <div className="flex flex-col md:grid gap-24 items-center mt-4 " style={{ gridTemplateColumns: "1fr 1fr" }}>
                 {/* Visual */}
                 <Reveal>
                   <EducationVisual />
@@ -27,7 +27,7 @@ const EducationSection = () => {
                   </Reveal>
                   <Reveal delay={0.15}>
                     <p className="leading-loose font-light mb-12" style={{ color: "#7a9ab8", fontSize: "0.95rem" }}>
-                      Berkeley shaped how I think about systems at a fundamental level. The rigor of the CS program — combined with the relentless energy of the Bay Area startup scene — gave me both the theoretical foundations and the bias for action that define how I work today. Some of the best conversations of my life happened in Soda Hall at midnight.
+                      Berkeley shaped how I think about systems at a fundamental level. The rigor of the CS program, combined with the relentless energy of the Bay Area startup scene, gave me both the theoretical foundations and the bias for action that define how I work today. Some of the best conversations of my life happened in Soda Hall — the heart of CS at Berkeley.
                     </p>
                   </Reveal>
                   <Reveal delay={0.2}>

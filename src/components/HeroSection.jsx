@@ -30,7 +30,7 @@ export default function HeroSection() {
 
           <div className="hero-4 flex gap-4 mt-10">
             <button className="cta-btn cursor-none transition-all duration-300 border px-8 py-3" onClick={() => scrollTo("projects")}
-              style={{ fontFamily: "'Share Tech Mono', monospace", fontSize: "0.72rem", letterSpacing: "0.12em", borderColor: "#1a2840", background: "transparent", color: "#4a6a8a", borderRadius: "2px" }}>
+              style={{ fontFamily: "'Share Tech Mono', monospace", fontSize: "0.72rem", letterSpacing: "0.12em",borderColor: "rgba(0,255,157,.3)", background: "transparent", color: "#4a6a8a", borderRadius: "2px" }}>
               SEE MY WORK
             </button>
             <button className="cta-btn cursor-none transition-all duration-300 border px-8 py-3" onClick={() => scrollTo("contact")}
