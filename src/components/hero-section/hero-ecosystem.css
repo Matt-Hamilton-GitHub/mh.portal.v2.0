@@ -1,0 +1,104 @@
+/* ============ HERO ECOSYSTEM — uses the .hx tokens ============ */
+.hx-eco {
+  width: min(100%, 600px);
+  display: grid;
+  gap: 1.25rem;
+  justify-items: center;
+}
+
+.hx-eco-svg {
+  width: 100%;
+  aspect-ratio: 1;
+  overflow: visible;
+  font-family: var(--hx-mono);
+}
+
+/* ---------- rings ---------- */
+.hx-eco-ring { fill: none; }
+.hx-eco-ring.r1 { stroke: var(--hx-line); stroke-width: 1.5; }
+.hx-eco-ring.r2 { stroke: var(--hx-line-soft); stroke-width: 1.5; stroke-dasharray: 3 9; animation: hx-eco-march 14s linear infinite; }
+.hx-eco-ring.r3 { stroke: rgba(0, 224, 255, 0.35); stroke-width: 1; stroke-dasharray: 14 10; animation: hx-eco-march 30s linear infinite reverse; }
+.hx-eco-tickring {
+  fill: none; stroke: var(--hx-green); stroke-width: 6; opacity: 0.28;
+  stroke-dasharray: 1.2 14.6;
+  transform-box: fill-box; transform-origin: center;
+  animation: hx-spin 120s linear infinite;
+}
+@keyframes hx-eco-march { to { stroke-dashoffset: -240; } }
+@keyframes hx-eco-in { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+
+/* ---------- edges + packets ---------- */
+.hx-eco-edge { stroke: var(--hx-line-soft); stroke-width: 1; transition: stroke .25s, stroke-width .25s, opacity .25s; }
+.hx-eco-edge.r3 { stroke: rgba(0, 224, 255, 0.28); }
+.hx-eco-edge.is-lit { stroke: var(--hx-green); stroke-width: 1.8; }
+.hx-eco-edge.r3.is-lit { stroke: var(--hx-cyan); }
+.hx-eco-packet { fill: var(--hx-green); }
+.hx-eco-packet.r3 { fill: var(--hx-cyan); }
+
+/* ---------- deploy pulse ---------- */
+.hx-eco-pulse { fill: none; stroke: var(--hx-pink); stroke-width: 2; }
+
+/* ---------- core ---------- */
+.hx-eco-hex { fill: none; stroke: var(--hx-green); transform-box: fill-box; transform-origin: center; }
+.hx-eco-hex.outer { stroke-width: 2; fill: rgba(0, 255, 157, 0.07); animation: hx-spin 36s linear infinite; }
+.hx-eco-hex.inner { stroke-width: 1.2; stroke-dasharray: 5 4; animation: hx-spin 20s linear infinite reverse; }
+.hx-eco-core-text { fill: var(--hx-text); font-size: 15px; letter-spacing: 0.08em; }
+
+/* ---------- nodes ---------- */
+.hx-eco-node { cursor: pointer; outline: none; transition: opacity .25s; }
+.hx-eco-node.is-dim { opacity: 0.45; }
+.hx-eco-hit { fill: transparent; }
+.hx-eco-halo { fill: rgba(255, 46, 110, 0.35); stroke: var(--hx-pink); stroke-width: 1.5; pointer-events: none; }
+
+.hx-eco-shape { fill: var(--hx-bg-solid, #04070a); stroke-width: 2; transition: fill .25s, stroke .25s; }
+.hx-eco-node.r1 .hx-eco-shape { stroke: var(--hx-green); }
+.hx-eco-node.r2 .hx-eco-shape { stroke: var(--hx-soft); stroke-width: 1.5; }
+.hx-eco-node.r3 .hx-eco-shape { stroke: var(--hx-cyan); stroke-width: 1.5; }
+.hx-eco-node.is-active .hx-eco-shape { fill: rgba(0, 255, 157, 0.22); stroke-width: 2.5; }
+.hx-eco-node.r3.is-active .hx-eco-shape { fill: rgba(0, 224, 255, 0.22); }
+.hx-eco-node.r2.is-active .hx-eco-shape { stroke: var(--hx-green); }
+
+.hx-eco-glyph { font-size: 12px; letter-spacing: 0.04em; fill: var(--hx-text); pointer-events: none; }
+.hx-eco-node.r1 .hx-eco-glyph { fill: var(--hx-green); font-size: 13px; }
+.hx-eco-node.r3 .hx-eco-glyph { fill: var(--hx-cyan); font-size: 10px; }
+
+.hx-eco-label {
+  font-size: 11px; letter-spacing: 0.12em; fill: var(--hx-soft); pointer-events: none;
+  paint-order: stroke; stroke: #04070a; stroke-width: 4px; stroke-linejoin: round;
+}
+.hx-eco-node.is-active .hx-eco-label { fill: var(--hx-text); }
+
+.hx-eco-node:focus-visible .hx-eco-hit { stroke: #fff; stroke-width: 2; stroke-dasharray: 4 3; }
+
+/* ---------- readout (matches .hx-term) ---------- */
+.hx-eco-readout {
+  width: min(100%, 26rem); min-height: 9.5rem;
+  border: 1px solid var(--hx-line); background: rgba(4, 7, 10, 0.88);
+  font-family: var(--hx-mono); font-size: 0.95rem; line-height: 1.7; color: var(--hx-soft);
+  padding: 0.9rem 1.25rem;
+  position: relative;
+  animation: hx-eco-in .3s ease-out;
+}
+.hx-eco-readout .hd { display: block; color: var(--hx-dim); letter-spacing: 0.2em; font-size: 0.8rem; margin-bottom: 0.3rem; }
+.hx-eco-readout em { color: var(--hx-green); font-style: normal; }
+.hx-eco-readout b { color: var(--hx-green); font-weight: 400; }
+.hx-eco-readout .role { color: var(--hx-text); }
+.hx-eco-readout .rel { color: var(--hx-dim); }
+
+.hx-eco-legend { display: flex; gap: 1.5rem; list-style: none; margin: 0; padding: 0; font-family: var(--hx-mono); font-size: 0.85rem; letter-spacing: 0.12em; color: var(--hx-dim); }
+.hx-eco-legend li { display: flex; align-items: center; gap: 0.5rem; }
+.hx-eco-legend i { width: 10px; height: 10px; border: 2px solid; display: inline-block; }
+.hx-eco-legend .k1 { border-color: var(--hx-green); }
+.hx-eco-legend .k2 { border-color: var(--hx-soft); }
+.hx-eco-legend .k3 { border-color: var(--hx-cyan); transform: rotate(45deg) scale(.85); }
+
+/* ---------- small screens: glyphs carry the meaning, readout names the node ---------- */
+@media (max-width: 560px) {
+  .hx-eco-label { display: none; }
+  .hx-eco-node.is-active .hx-eco-label { display: block; }
+}
+
+/* ---------- motion preferences ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .hx-eco *, .hx-eco-readout { animation: none !important; }
+}

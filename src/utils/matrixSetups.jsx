@@ -24,7 +24,7 @@ export function MatrixRain() {
     window.addEventListener("resize", resize);
 
     const id = setInterval(() => {
-      ctx.fillStyle = "rgba(0,0,0,0.05)";
+      ctx.fillStyle = "black";
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
       drops.forEach((y, i) => {
@@ -100,7 +100,7 @@ export function MatrixName({ name }) {
         setHovered(false);
         scramble();
       }}
-      className="block mb-2 tracking-widest cursor-none transition-all duration-200"
+      className="block mb-2 tracking-widest  transition-all duration-200"
       style={{
         fontFamily: "'Share Tech Mono', monospace",
         fontSize: "clamp(1rem,1.8vw,1.3rem)",
@@ -113,58 +113,58 @@ export function MatrixName({ name }) {
   );
 }
 
-export function CustomCursor() {
-  const [pos, setPos] = useState({ x: -100, y: -100 });
-  const [clicking, setClicking] = useState(false);
+// export function CustomCursor() {
+//   const [pos, setPos] = useState({ x: -100, y: -100 });
+//   const [clicking, setClicking] = useState(false);
 
-  useEffect(() => {
-    const mv = (e) => setPos({ x: e.clientX, y: e.clientY });
-    const md = () => setClicking(true);
-    const mu = () => setClicking(false);
-    window.addEventListener("mousemove", mv);
-    window.addEventListener("mousedown", md);
-    window.addEventListener("mouseup", mu);
-    return () => {
-      window.removeEventListener("mousemove", mv);
-      window.removeEventListener("mousedown", md);
-      window.removeEventListener("mouseup", mu);
-    };
-  }, []);
+//   useEffect(() => {
+//     const mv = (e) => setPos({ x: e.clientX, y: e.clientY });
+//     const md = () => setClicking(true);
+//     const mu = () => setClicking(false);
+//     window.addEventListener("mousemove", mv);
+//     window.addEventListener("mousedown", md);
+//     window.addEventListener("mouseup", mu);
+//     return () => {
+//       window.removeEventListener("mousemove", mv);
+//       window.removeEventListener("mousedown", md);
+//       window.removeEventListener("mouseup", mu);
+//     };
+//   }, []);
 
-  const size = clicking ? 14 : 20;
-  const thickness = 1.5;
+//   const size = clicking ? 14 : 20;
+//   const thickness = 1.5;
 
-  const barStyle = {
-    position: "fixed",
-    pointerEvents: "none",
-    background: "#00ff9d",
-    mixBlendMode: "difference",
-    zIndex: 9999,
-    transition: "width 0.12s, height 0.12s",
-  };
+//   const barStyle = {
+//     position: "fixed",
+//     pointerEvents: "none",
+//     background: "#00ff9d",
+//     mixBlendMode: "difference",
+//     zIndex: 9999,
+//     transition: "width 0.12s, height 0.12s",
+//   };
 
-  return (
-    <>
-      {/* Horizontal bar */}
-      <div
-        style={{
-          ...barStyle,
-          left: pos.x - size / 2,
-          top: pos.y - thickness / 2,
-          width: size,
-          height: thickness,
-        }}
-      />
-      {/* Vertical bar */}
-      <div
-        style={{
-          ...barStyle,
-          left: pos.x - thickness / 2,
-          top: pos.y - size / 2,
-          width: thickness,
-          height: size,
-        }}
-      />
-    </>
-  );
-}
+//   return (
+//     <>
+//       {/* Horizontal bar */}
+//       <div
+//         style={{
+//           ...barStyle,
+//           left: pos.x - size / 2,
+//           top: pos.y - thickness / 2,
+//           width: size,
+//           height: thickness,
+//         }}
+//       />
+//       {/* Vertical bar */}
+//       <div
+//         style={{
+//           ...barStyle,
+//           left: pos.x - thickness / 2,
+//           top: pos.y - size / 2,
+//           width: thickness,
+//           height: size,
+//         }}
+//       />
+//     </>
+//   );
+// }

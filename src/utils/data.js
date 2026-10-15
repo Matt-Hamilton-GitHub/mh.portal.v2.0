@@ -32,11 +32,27 @@ export const EXPERIENCE = [
   },
 ];
 
+// export const PROJECTS = [
+//   { name: "Cabinly",      year: "2024", tech: ["Next.js","Node.js", "MangoDB", "JWT", "React", 'Tailwind'],    desc: "Cabinly is an experience-driven travel platform that combines cabin rentals, curated activities, and social group experiences into structured adventure bundles. It is designed to help people connect with nature, meet like-minded individuals, and participate in intellectually and culturally enriching retreats.", accent: "#00ff9d" },
+//   { name: "CozyHome",  year: "2021", tech: ["React", "Firebase", "Node.js", "Auth0", "PostgreSQL"],               desc: "This platform is a premium furniture brand dedicated to artisan-crafted, timeless pieces designed to elevate modern living spaces. It combines traditional craftsmanship with refined contemporary design, offering furniture that is both functional and heirloom-worthy.",         stars: "",  accent: "#00e0ff" },
+// //   { name: "DataMesh",     year: "2023", tech: ["Python", "Kafka", "ClickHouse"],          desc: "Federated analytics framework for distributed teams. 15k+ monthly downloads on PyPI.",                 stars: "", accent: "#f59e0b" },
+// //   { name: "NeuralCache",  year: "2024", tech: ["TypeScript", "LLM APIs", "pgvector"],     desc: "Semantic caching for LLM apps using vector similarity. Cuts API costs by up to 60%.",                  stars: "",  accent: "#a78bfa" },
+// ];
 export const PROJECTS = [
-  { name: "Cabinly",      year: "2024", tech: ["Next.js","Node.js", "MangoDB", "JWT", "React", 'Tailwind'],    desc: "Cabinly is an experience-driven travel platform that combines cabin rentals, curated activities, and social group experiences into structured adventure bundles. It is designed to help people connect with nature, meet like-minded individuals, and participate in intellectually and culturally enriching retreats.", accent: "#00ff9d" },
-  { name: "CozyHome",  year: "2021", tech: ["React", "Firebase", "Node.js", "Auth0", "PostgreSQL"],               desc: "This platform is a premium furniture brand dedicated to artisan-crafted, timeless pieces designed to elevate modern living spaces. It combines traditional craftsmanship with refined contemporary design, offering furniture that is both functional and heirloom-worthy.",         stars: "",  accent: "#00e0ff" },
-//   { name: "DataMesh",     year: "2023", tech: ["Python", "Kafka", "ClickHouse"],          desc: "Federated analytics framework for distributed teams. 15k+ monthly downloads on PyPI.",                 stars: "", accent: "#f59e0b" },
-//   { name: "NeuralCache",  year: "2024", tech: ["TypeScript", "LLM APIs", "pgvector"],     desc: "Semantic caching for LLM apps using vector similarity. Cuts API costs by up to 60%.",                  stars: "",  accent: "#a78bfa" },
+  {
+    name: "Weather Dash",
+    tagline: "A clean forecast app for my city.",
+    year: "2025",
+    status: "Live",              // optional
+    role: "Solo project",        // optional
+    desc: "Fetches a 7-day forecast from a public API and caches results so it loads instantly on repeat visits.",
+    link: "https://example.com",       // optional
+    repo: "https://github.com/you/weather-dash", // optional
+    images: [                    // optional, real screenshots only
+      { src: "/img/weather-1.png", caption: "Home view" },
+    ],
+    stack: ["React", "Tailwind", "OpenWeather API"],
+  },
 ];
 
 export const COURSEWORK = [

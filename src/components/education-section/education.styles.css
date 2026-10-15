@@ -1,0 +1,87 @@
+.ed { --ed-gold: #FDB515; --row: 56px; }
+@media (max-width: 640px) { .ed { --row: 64px; } }
+
+.ed-inner { max-width: 78rem; margin-inline: auto; }
+.ed-head { display: flex; justify-content: center; margin-bottom: clamp(3rem, 6vw, 5rem); }
+.ed-grid { display: grid; gap: clamp(3rem, 6vw, 6rem); align-items: center; }
+@media (min-width: 900px) { .ed-grid { grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); } }
+
+/* ---------- text column ---------- */
+.ed-h2 { display: flex; flex-direction: column; font-size: clamp(2.6rem, 5vw, 4.75rem); letter-spacing: -0.04em; }
+.ed-t1 { color: var(--hud-text); }
+.ed-t2 { color: var(--hud-soft); }
+.ed-t3 { color: var(--ed-gold); text-shadow: 0 0 40px rgba(253,181,21,.25); }
+
+.ed-degree { margin: 1.5rem 0 0; font-family: var(--hud-mono); letter-spacing: .08em; color: var(--hud-green); }
+.ed-p {
+  margin: 2rem 0 0; max-width: 36rem; padding-left: clamp(1.25rem, 2.5vw, 2rem);
+  border-left: 2px solid var(--hud-green);
+  font-size: clamp(1.05rem, 1.4vw, 1.2rem); font-weight: 300; line-height: 1.9; color: var(--hud-soft); text-wrap: pretty;
+}
+
+/* ---------- tree frame ---------- */
+.ed-tree { display: grid; justify-items: center; padding: 1.75rem 1.25rem 1.5rem; }
+.ed-root, .ed-branches, .ed-end, .ed-cap { position: relative; z-index: 1; }
+
+.ed-rain {
+  position: absolute; inset: 0; overflow: hidden; z-index: 0; pointer-events: none; opacity: .35;
+  mask-image: linear-gradient(180deg, transparent, #000 25%, #000 75%, transparent);
+  -webkit-mask-image: linear-gradient(180deg, transparent, #000 25%, #000 75%, transparent);
+}
+.ed-rain span {
+  position: absolute; top: 0; left: var(--x); writing-mode: vertical-rl; text-orientation: upright;
+  font-family: var(--hud-mono); font-size: .7rem; letter-spacing: .1em; color: var(--hud-green); opacity: .5;
+  animation: ed-fall var(--d) linear infinite; animation-delay: var(--w);
+}
+@keyframes ed-fall { from { transform: translateY(-100%); } to { transform: translateY(700%); } }
+
+/* ---------- root + end nodes ---------- */
+.ed-root, .ed-end { display: grid; justify-items: center; gap: .35rem; padding: .9rem 1.5rem; border: 1px solid var(--ed-gold); background: rgba(253,181,21,.06); }
+.ed-root { margin-bottom: 1.75rem; box-shadow: 0 0 40px rgba(253,181,21,.12); }
+.ed-root .hud-label, .ed-end .hud-label { color: rgba(253,181,21,.75); }
+.ed-root-t { font-size: clamp(1.3rem, 2.4vw, 1.8rem); letter-spacing: .02em; color: var(--ed-gold); }
+.ed-root::after { content: ""; position: absolute; left: 50%; top: 100%; width: 1px; height: 1.75rem; background: linear-gradient(180deg, var(--ed-gold), var(--hud-hair-strong)); }
+
+.ed-end { margin-top: 1.75rem; }
+.ed-end b { font-size: 1.2rem; color: var(--hud-text); }
+.ed-end::before { content: ""; position: absolute; left: 50%; bottom: 100%; width: 1px; height: 1.75rem; background: linear-gradient(180deg, var(--hud-hair-strong), var(--ed-gold)); }
+
+.ed-cap { margin-top: 1.5rem; }
+
+/* ---------- branches ---------- */
+.ed-branches { width: 100%; }
+.ed-lines { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.ed-trunk, .ed-branch { fill: none; vector-effect: non-scaling-stroke; stroke-width: 1; }
+.ed-trunk { stroke: var(--hud-hair-strong); }
+.ed-branch { stroke: rgba(0,255,157,.45); transition: stroke .2s, filter .2s; }
+.ed-branch.on { stroke: var(--hud-green); filter: drop-shadow(0 0 6px var(--hud-green)); }
+
+.ed-pulse {
+  position: absolute; left: calc(50% - 2px); top: 0; width: 5px; height: 5px; pointer-events: none;
+  background: var(--hud-green); box-shadow: 0 0 14px var(--hud-green), 0 0 30px rgba(0,255,157,.5);
+  animation: ed-travel 9s linear infinite;
+}
+@keyframes ed-travel { from { top: 0; opacity: 0; } 8%, 92% { opacity: 1; } to { top: 100%; opacity: 0; } }
+
+.ed-list { position: relative; margin: 0; padding: 0; list-style: none; }
+.ed-leaf { position: relative; height: var(--row); outline: none; transition: opacity .3s; }
+.ed-leaf[data-dim="true"] { opacity: .4; }
+
+.ed-node {
+  position: absolute; top: 50%; left: var(--nx); width: 11px; height: 11px;
+  border: 1px solid var(--hud-green); background: var(--hud-solid);
+  transform: translate(-50%, -50%) rotate(45deg); transition: background .2s, box-shadow .2s;
+}
+.ed-leaf[data-active="true"] .ed-node { background: var(--hud-green); box-shadow: 0 0 18px rgba(0,255,157,.6); }
+.ed-leaf:focus-visible .ed-node { outline: 2px solid #fff; outline-offset: 3px; }
+
+.ed-course {
+  position: absolute; top: 50%; transform: translateY(-50%); display: grid; gap: .1rem;
+  font-family: var(--hud-mono); font-size: .78rem; line-height: 1.3; letter-spacing: .02em; color: var(--hud-soft);
+  transition: color .2s;
+}
+.ed-course i { font-style: normal; font-size: .65rem; letter-spacing: .18em; color: var(--hud-dim); transition: color .2s; }
+.ed-leaf.l .ed-course { right: calc(100% - var(--nx) + 1rem); max-width: calc(var(--nx) - 1.25rem); text-align: right; }
+.ed-leaf.r .ed-course { left: calc(var(--nx) + 1rem); max-width: calc(100% - var(--nx) - 1.25rem); }
+.ed-leaf[data-active="true"] .ed-course { color: var(--hud-text); }
+.ed-leaf[data-active="true"] .ed-course i { color: var(--hud-green); }

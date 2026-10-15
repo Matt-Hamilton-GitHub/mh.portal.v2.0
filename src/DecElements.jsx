@@ -1,8 +1,8 @@
-import { CustomCursor, MatrixRain } from "./utils/matrixSetups";
+import {  MatrixRain } from "./utils/matrixSetups";
 const DecElements = () => {
   return (
     <>
-      <CustomCursor />
+      {/* <CustomCursor /> */}
       <MatrixRain />
     </>
   );

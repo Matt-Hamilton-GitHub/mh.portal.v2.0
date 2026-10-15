@@ -1,0 +1,108 @@
+/* ============ NAVBAR — matches the .hx hero HUD ============ */
+.hxn {
+  --hxn-green: #00ff9d;
+  --hxn-cyan: #00e0ff;
+  --hxn-text: #f2f8ff;
+  --hxn-soft: #b8cde2;
+  --hxn-line: rgba(0, 255, 157, 0.55);
+  --hxn-line-soft: rgba(0, 255, 157, 0.22);
+  --hxn-mono: "Share Tech Mono", ui-monospace, monospace;
+
+  position: fixed; top: 0; left: 0; right: 0; z-index: 500;
+  font-family: var(--hxn-mono);
+}
+
+/* top: soft fade over the hero. scrolled: solid glass with a green rule */
+.hxn::before, .hxn::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none; transition: opacity .3s;
+}
+.hxn::before { background: linear-gradient(to bottom, rgba(2, 6, 8, 0.92), transparent); }
+.hxn::after {
+  opacity: 0; background: rgba(4, 7, 10, 0.86);
+  backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--hxn-line-soft);
+}
+.hxn.is-scrolled::before { opacity: 0; }
+.hxn.is-scrolled::after, .hxn.is-open::after { opacity: 1; }
+
+.hxn-bar {
+  position: relative; z-index: 1;
+  display: flex; align-items: center; justify-content: space-between; gap: 1.5rem;
+  padding: 1.4rem clamp(1.25rem, 4vw, 3rem);
+  transition: padding .3s;
+}
+.hxn.is-scrolled .hxn-bar { padding-block: 0.8rem; }
+
+.hxn button { font-family: inherit; background: none; border: 0; padding: 0; color: inherit; }
+.hxn button:focus-visible { outline: 2px solid #fff; outline-offset: 4px; }
+
+/* ---------- brand ---------- */
+.hxn-brand {
+  display: inline-flex; align-items: center; gap: 0.75rem;
+  font-size: 1rem; letter-spacing: 0.32em; color: var(--hxn-green) !important;
+  text-shadow: 0 0 18px rgba(0, 255, 157, 0.4);
+}
+.hxn-dot {
+  width: 9px; height: 9px; background: var(--hxn-green); box-shadow: 0 0 12px var(--hxn-green);
+  animation: hxn-blink 1.4s steps(2, jump-none) infinite;
+}
+@keyframes hxn-blink { 50% { opacity: 0.15; } }
+
+/* ---------- desktop links ---------- */
+.hxn-links { display: none; align-items: center; gap: 2.25rem; list-style: none; margin: 0; padding: 0; }
+.hxn-link {
+  position: relative; padding: 0.4rem 0;
+  font-size: 0.85rem; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--hxn-soft) !important; transition: color .2s, text-shadow .2s;
+}
+.hxn-link::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: -2px; height: 2px;
+  background: var(--hxn-green); box-shadow: 0 0 10px var(--hxn-green);
+  transform: scaleX(0); transform-origin: left; transition: transform .25s;
+}
+.hxn-link:hover { color: var(--hxn-text) !important; }
+.hxn-link:hover::after { transform: scaleX(0.4); }
+.hxn-link.is-active { color: var(--hxn-green) !important; text-shadow: 0 0 14px rgba(0, 255, 157, 0.45); }
+.hxn-link.is-active::after { transform: scaleX(1); }
+
+/* contact: same clipped shape as the hero buttons */
+.hxn-cta {
+  font-size: 0.85rem; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--hxn-green) !important; padding: 0.6rem 1.25rem;
+  border: 2px solid var(--hxn-green) !important;
+  clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
+  transition: background .15s, color .15s, transform .15s;
+}
+.hxn-cta:hover { background: rgba(0, 255, 157, 0.12); color: #fff !important; transform: translate(-1px, -1px); }
+
+/* ---------- burger (mobile) ---------- */
+.hxn-burger {
+  display: grid; align-content: center; gap: 5px; width: 44px; height: 44px; padding: 0 11px !important;
+  border: 1px solid var(--hxn-line) !important;
+}
+.hxn-burger span { display: block; height: 2px; background: var(--hxn-green); transition: transform .2s, opacity .2s; }
+.hxn.is-open .hxn-burger span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hxn.is-open .hxn-burger span:nth-child(2) { opacity: 0; }
+.hxn.is-open .hxn-burger span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* ---------- mobile menu ---------- */
+.hxn-menu {
+  position: relative; z-index: 1; display: grid; padding: 0.5rem clamp(1.25rem, 4vw, 3rem) 1.5rem;
+  background: rgba(4, 7, 10, 0.96); border-bottom: 1px solid var(--hxn-line-soft);
+}
+.hxn-menu[hidden] { display: none; }
+.hxn-mlink {
+  text-align: left; padding: 0.9rem 0 0.9rem 1rem; min-height: 48px;
+  font-size: 1rem; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--hxn-soft) !important; border-left: 2px solid var(--hxn-line-soft) !important;
+}
+.hxn-mlink.is-active { color: var(--hxn-green) !important; border-left-color: var(--hxn-green) !important; }
+
+@media (min-width: 768px) {
+  .hxn-links { display: flex; }
+  .hxn-burger, .hxn-menu { display: none !important; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hxn *, .hxn::before, .hxn::after { animation: none !important; transition: none !important; }
+}

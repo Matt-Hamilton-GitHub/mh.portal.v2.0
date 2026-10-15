@@ -1,5 +1,272 @@
 @import "tailwindcss";
 
+/* ============ HUD — global design layer ============ */
+
+html{
+  background-color: #030303fa;
+}
+
+:root {
+  --hud-bg: #04070a54;
+  --hud-panel: rgba(4, 7, 10, 0.88);
+  --hud-green: #00ff9d;
+  --hud-cyan: #00e0ff;
+  --hud-pink: #ff2e6e;
+  --hud-text: #f2f8ff;
+  --hud-soft: #b8cde2;
+  --hud-dim: #8fa8c0;
+  --hud-solid: #03060a;
+  --hud-hair: rgba(190, 225, 255, 0.14);
+  --hud-hair-strong: rgba(0, 255, 157, 0.5);
+  --hud-line: rgba(0, 255, 157, 0.55);
+  --hud-line-soft: rgba(0, 255, 157, 0.22);
+  --hud-mono: "Share Tech Mono", ui-monospace, monospace;
+  --hud-display: "Clash Display", sans-serif;
+  --hud-pad: clamp(1.25rem, 5vw, 4rem);
+}
+.hx-title {
+  font-family: var(--hx-display); font-weight: 700; line-height: .95; letter-spacing: -0.015em;
+  font-size: clamp(3rem, 8.2vw, 8.5rem);
+  display: flex; flex-direction: column; gap: .12em;
+}
+/* ---------- section shell + ambient layers ---------- */
+.hud { position: relative; isolation: isolate; overflow: hidden; background: var(--hud-bg); }
+
+.hud-grid {
+  position: absolute; inset: 0; z-index: -3; pointer-events: none; opacity: 0.35;
+  background-image:
+    linear-gradient(var(--hud-line-soft) 1px, transparent 1px),
+    linear-gradient(90deg, var(--hud-line-soft) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(ellipse at 60% 50%, #000 20%, transparent 75%);
+  -webkit-mask-image: radial-gradient(ellipse at 60% 50%, #000 20%, transparent 75%);
+}
+.hud-scanlines {
+  position: absolute; inset: 0; z-index: 5; pointer-events: none; mix-blend-mode: multiply;
+  background: repeating-linear-gradient(0deg, rgba(0,0,0,.18) 0 1px, transparent 1px 3px);
+}
+.hud-scanbar {
+  position: absolute; left: 0; right: 0; height: 120px; z-index: 5; pointer-events: none;
+  background: linear-gradient(180deg, transparent, rgba(0,255,157,.07), transparent);
+  animation: hud-sweep 7s linear infinite;
+}
+@keyframes hud-sweep { from { top: -120px; } to { top: 100%; } }
+
+/* ---------- frame pieces ---------- */
+.hud-panel { position: relative; border: 1px solid var(--hud-line); background: var(--hud-panel); }
+
+.hud-corner { position: absolute; width: 14px; height: 14px; border: 0 solid var(--hud-green); pointer-events: none; }
+.hud-corner.tl { top: -1px; left: -1px; border-top-width: 2px; border-left-width: 2px; }
+.hud-corner.tr { top: -1px; right: -1px; border-top-width: 2px; border-right-width: 2px; }
+.hud-corner.bl { bottom: -1px; left: -1px; border-bottom-width: 2px; border-left-width: 2px; }
+.hud-corner.br { bottom: -1px; right: -1px; border-bottom-width: 2px; border-right-width: 2px; }
+
+/* ---------- type ---------- */
+.hud-display { font-family: var(--hud-display); font-weight: 700; line-height: .95; letter-spacing: -0.015em; }
+
+.hud-label { font-family: var(--hud-mono); font-size: .85rem; letter-spacing: .14em; color: var(--hud-dim); }
+.hud-label b { color: var(--hud-green); font-weight: 400; }
+
+.hud-tag { composes: hud-label; border: 1px solid var(--hud-line-soft); background: rgba(4,7,10,.85); padding: .25rem .6rem; }
+.hud-tag { font-family: var(--hud-mono); font-size: .85rem; letter-spacing: .14em; color: var(--hud-dim); border: 1px solid var(--hud-line-soft); background: rgba(4,7,10,.85); padding: .25rem .6rem; }
+.hud-tag b { color: var(--hud-green); font-weight: 400; }
+.hud-badge {
+  position: relative; display: inline-flex; align-items: center; gap: .75rem;
+  padding: .55rem 1rem; border: 1px solid var(--hud-line); background: rgba(0,255,157,.06);
+  font-family: var(--hud-mono); font-size: clamp(.85rem, 1.6vw, 1rem);
+  letter-spacing: .22em; color: var(--hud-green);
+}
+.hud-dot { width: 9px; height: 9px; background: var(--hud-green); box-shadow: 0 0 12px var(--hud-green); animation: hud-blink 1.4s steps(2, jump-none) infinite; }
+.hud-caret { display: inline-block; width: .6em; height: 1.1em; background: var(--hud-green); vertical-align: -0.2em; animation: hud-blink 1s steps(2, jump-none) infinite; }
+@keyframes hud-blink { 50% { opacity: .15; } }
+
+/* ---------- buttons ---------- */
+.hud-btn {
+  position: relative; font-family: var(--hud-mono); font-size: clamp(.95rem, 1.4vw, 1.1rem);
+  letter-spacing: .14em; padding: 1rem 2rem; min-height: 52px; border: 2px solid var(--hud-green); border-radius: 0;
+  transition: transform .15s, box-shadow .15s, background .15s, color .15s;
+  clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px));
+}
+.hud-btn.primary { background: var(--hud-green); color: #021009; font-weight: 700; }
+.hud-btn.ghost { background: transparent; color: var(--hud-green); }
+.hud-btn:hover, .hud-btn:focus-visible {
+  transform: translate(-2px, -2px); outline: none; box-shadow: 4px 4px 0 var(--hud-cyan);
+  animation: hud-shiver .35s steps(2) 1;
+}
+.hud-btn.ghost:hover { background: rgba(0,255,157,.12); color: #fff; }
+.hud-btn:focus-visible { outline: 2px solid #fff; outline-offset: 4px; }
+
+/* ---------- glitch + shiver ---------- */
+.glitch { position: relative; display: block; animation: hx-shiver var(--g-dur, 5s) steps(1) infinite; animation-delay: var(--g-del, 0s); }
+.glitch::before, .glitch::after {
+  content: attr(data-text); position: absolute; inset: 0; pointer-events: none;
+  clip-path: inset(0 0 100% 0); opacity: .9;
+}
+.glitch::before { color: var(--hx-cyan); animation: hx-slice-a var(--g-dur, 5s) steps(1) infinite; animation-delay: var(--g-del, 0s); }
+.glitch::after  { color: var(--hx-pink); animation: hx-slice-b var(--g-dur, 5s) steps(1) infinite; animation-delay: var(--g-del, 0s); }
+
+@keyframes hud-shiver {
+  0%, 90%, 100% { transform: none; }
+  91% { transform: translate(-3px, 1px) skewX(-3deg); }
+  93% { transform: translate(3px, -1px) skewX(4deg); }
+  95% { transform: translate(-2px, 0); }
+  97% { transform: translate(2px, 1px) skewX(-2deg); }
+}
+@keyframes hud-slice-a {
+  0%, 90%, 100% { clip-path: inset(0 0 100% 0); transform: none; }
+  91% { clip-path: inset(10% 0 62% 0); transform: translate(-6px, 0); }
+  93% { clip-path: inset(55% 0 20% 0); transform: translate(5px, 0); }
+  95% { clip-path: inset(30% 0 45% 0); transform: translate(-4px, 0); }
+  97% { clip-path: inset(78% 0 5% 0);  transform: translate(3px, 0); }
+}
+@keyframes hud-slice-b {
+  0%, 90%, 100% { clip-path: inset(0 0 100% 0); transform: none; }
+  92% { clip-path: inset(40% 0 38% 0); transform: translate(6px, 0); }
+  94% { clip-path: inset(5% 0 80% 0);  transform: translate(-5px, 0); }
+  96% { clip-path: inset(68% 0 12% 0); transform: translate(4px, 0); }
+  98% { clip-path: inset(22% 0 55% 0); transform: translate(-3px, 0); }
+}
+.hud-jitter { animation: hud-jit 2.6s steps(1) infinite; }
+@keyframes hud-jit { 0%,94%,100%{transform:none} 95%{transform:translateX(-2px)} 97%{transform:translateX(2px)} }
+/* section background + padding (use with .hud) */
+.hud-aurora {
+  padding: clamp(6rem, 12vw, 11rem) var(--hud-pad);
+ 
+  /* background:
+    radial-gradient(55rem 34rem at 15% 0%, rgba(0, 224, 255, 0.06), transparent 70%),
+    radial-gradient(55rem 34rem at 90% 100%, rgba(0, 255, 157, 0.07), transparent 70%),
+    var(--hud-solid); */
+}
+
+.hud-beam {
+  position: absolute; left: 0; right: 0; top: 0; height: 1px; z-index: -1; pointer-events: none;
+  background: linear-gradient(90deg, transparent, rgba(0,255,157,.8) 50%, transparent);
+  box-shadow: 0 0 24px rgba(0,255,157,.35); animation: hud-beam 16s linear infinite;
+}
+@keyframes hud-beam { from { top: 0; opacity: 0; } 10%, 90% { opacity: 1; } to { top: 100%; opacity: 0; } }
+
+.hud-ghost {
+  position: absolute; z-index: -2; top: 3rem; right: -1rem; pointer-events: none; user-select: none;
+  font-family: var(--hud-display); font-weight: 600; line-height: 1; letter-spacing: -0.06em;
+  font-size: clamp(10rem, 26vw, 24rem); color: transparent; -webkit-text-stroke: 1px rgba(0,255,157,.16);
+  animation: hud-ghost 8s steps(1) infinite;
+}
+@keyframes hud-ghost { 0%,95%,100% { translate: 0 0; } 96% { translate: -6px 0; } 98% { translate: 5px 2px; } }
+
+.hud-meta { position: absolute; font-family: var(--hud-mono); font-size: .8rem; letter-spacing: .24em; text-transform: uppercase; color: var(--hud-dim); pointer-events: none; }
+.hud-meta b { color: var(--hud-green); font-weight: 400; }
+.hud-meta.tl { top: 1.5rem; left: var(--hud-pad); }
+.hud-meta.tr { top: 1.5rem; right: var(--hud-pad); }
+.hud-meta.bl { bottom: 1.5rem; left: var(--hud-pad); }
+.hud-meta.br { bottom: 1.5rem; right: var(--hud-pad); }
+@media (max-width: 640px) { .hud-meta.tr, .hud-meta.br { display: none; } }
+
+/* section eyebrow: ——◇ 04 — PROJECTS ◇—— */
+.hud-eyebrow { display: inline-flex; align-items: center; gap: 1rem; font-family: var(--hud-mono); font-size: clamp(.95rem, 1.4vw, 1.1rem); letter-spacing: .34em; color: var(--hud-soft); }
+.hud-eyebrow .num { color: var(--hud-green); }
+.hud-eyebrow .ln { width: clamp(2.5rem, 9vw, 7rem); height: 1px; background: linear-gradient(90deg, transparent, var(--hud-hair-strong)); }
+.hud-eyebrow .ln:last-child { background: linear-gradient(270deg, transparent, var(--hud-hair-strong)); }
+.hud-eyebrow .dia { width: 7px; height: 7px; border: 1px solid var(--hud-green); transform: rotate(45deg); }
+
+.hud-sub { display: inline-flex; align-items: center; gap: .9rem; font-family: var(--hud-mono); font-size: clamp(.9rem, 1.3vw, 1.05rem); letter-spacing: .26em; color: var(--hud-dim); }
+.hud-sub b { color: var(--hud-green); font-weight: 400; }
+.hud-sub i { width: 6px; height: 6px; border-radius: 50%; background: var(--hud-green); box-shadow: 0 0 10px var(--hud-green); animation: hud-blink 2s steps(2, jump-none) infinite; }
+
+/* glass panel with gradient hairline border */
+.hud-hairline {
+  position: relative; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+  background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.008));
+}
+.hud-hairline::before {
+  content: ""; position: absolute; inset: 0; padding: 1px; pointer-events: none;
+  background: linear-gradient(135deg, rgba(0,255,157,.85), rgba(190,225,255,.1) 32%, rgba(190,225,255,.08) 68%, rgba(0,224,255,.65));
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor; mask-composite: exclude;
+}
+.hud-sheen { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
+.hud-sheen::after {
+  content: ""; position: absolute; top: 0; bottom: 0; left: -40%; width: 30%; transform: skewX(-18deg);
+  background: linear-gradient(100deg, transparent, rgba(0,255,157,.09), transparent);
+  transition: left 1s cubic-bezier(.2,.7,.2,1);
+}
+.hud-hairline:hover .hud-sheen::after { left: 120%; }
+
+/* registration ticks (cross marks) */
+.hud-tick { position: absolute; width: 12px; height: 12px; pointer-events: none; }
+.hud-tick::before, .hud-tick::after { content: ""; position: absolute; background: var(--hud-green); }
+.hud-tick::before { width: 12px; height: 1px; }
+.hud-tick::after  { width: 1px; height: 12px; }
+.hud-tick.tl { top: -4px; left: -4px; }
+.hud-tick.tr { top: -4px; right: -4px; }    .hud-tick.tr::before, .hud-tick.tr::after { right: 0; }
+.hud-tick.bl { bottom: -4px; left: -4px; }  .hud-tick.bl::before, .hud-tick.bl::after { bottom: 0; }
+.hud-tick.br { bottom: -4px; right: -4px; } .hud-tick.br::before, .hud-tick.br::after { right: 0; bottom: 0; }
+
+/* green chip with square bullet */
+.hud-chip {
+  display: inline-flex; align-items: center; gap: .5rem; padding: .45rem .85rem;
+  border: 1px solid rgba(0,255,157,.4); background: rgba(0,255,157,.05);
+  font-family: var(--hud-mono); font-size: clamp(.9rem, 1.2vw, 1rem); letter-spacing: .08em; color: var(--hud-green);
+}
+.hud-chip::before { content: ""; width: 4px; height: 4px; background: var(--hud-green); }
+
+/* ---------- motion preferences (replaces the earlier block) ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .hud *, .hud *::before, .hud *::after { animation: none !important; transition: none !important; }
+  .glitch::before, .glitch::after { display: none; }
+}
+/* ---------- motion preferences ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .hud *, .hud *::before, .hud *::after { animation: none !important; }
+  .glitch::before, .glitch::after { display: none; }
+}
+
+/* ============ matrix bracket section title ============ */
+.st { gap: clamp(.6rem, 1.4vw, 1rem); }
+
+/* the layout swap means the right line is no longer :last-child, so style it explicitly */
+.st .ln { position: relative; }
+.st .ln.r { background: linear-gradient(270deg, transparent, var(--hud-hair-strong)); }
+
+/* green bracket shapes */
+.st-br {
+  width: .8rem; height: 2.4rem; border: 2px solid var(--hud-green); opacity: 0;
+  filter: drop-shadow(0 0 8px rgba(0,255,157,.7));
+}
+.st-br.l { border-right: 0; --dx: 1.5rem; }
+.st-br.r { border-left: 0;  --dx: -1.5rem; }
+@media (max-width: 640px) { .st-br { height: 2rem; } }
+
+/* label: sizer reserves the final width so the decode never shifts layout */
+.st-text { display: inline-grid; }
+.st-sizer, .st-live { grid-area: 1 / 1; white-space: nowrap; }
+.st-sizer { visibility: hidden; }
+.st-live { color: var(--hud-soft); text-shadow: 0 0 14px rgba(0,255,157,.35); }
+
+/* plays once the title scrolls into view */
+.st[data-seen="true"] .st-br {
+  opacity: 1;
+  animation: st-open .7s cubic-bezier(.2,.7,.2,1) both, st-breathe 3s ease-in-out .7s infinite;
+}
+.st[data-seen="true"] .ln { animation: st-draw .8s cubic-bezier(.2,.7,.2,1) .3s both; transform-origin: right; }
+.st[data-seen="true"] .ln.r { transform-origin: left; }
+
+/* light pulse running along each line toward the label */
+.st .ln::after {
+  content: ""; position: absolute; top: -1px; left: -18px; width: 18px; height: 3px; opacity: 0;
+  background: linear-gradient(90deg, transparent, var(--hud-green), transparent);
+}
+.st[data-seen="true"] .ln::after { opacity: 1; animation: st-run 3s linear 1.2s infinite; }
+.st .ln.r::after { left: auto; right: -18px; transform: scaleX(-1); }
+.st[data-seen="true"] .ln.r::after { animation-name: st-run-r; }
+
+@keyframes st-open {
+  from { transform: translateX(var(--dx)) scaleY(.2); opacity: 0; }
+  to   { transform: none; opacity: 1; }
+}
+@keyframes st-breathe { 50% { filter: drop-shadow(0 0 14px rgba(0,255,157,.95)); } }
+@keyframes st-draw { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+@keyframes st-run   { from { left: -18px; }  to { left: 100%; } }
+@keyframes st-run-r { from { right: -18px; } to { right: 100%; } }
 
 :root {
     --main-matrix-green: #00ff9d;
@@ -9,12 +276,6 @@ a {
 }
 a:hover {
   color: #535bf2;
-}
-
-body {
-}
-
-h1 {
 }
 
 
