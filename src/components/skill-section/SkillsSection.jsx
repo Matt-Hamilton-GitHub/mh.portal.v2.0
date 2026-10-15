@@ -59,12 +59,20 @@ const SkillsSection = () => {
 
   return (
     <section id="skills" className="sk">
+      
       <div className="sk-inner">
         <Reveal>
           <div className="sk-head">
-            <Rings />
+            <div className="ex-label">
+              <span className="ln" />
+              <span className="dia" />
+              <span>Skills</span>
+              <span className="dia" />
+              <span className="ln" />
+            </div>
+            {/* <Rings /> */}
 
-            <h2 className="hx-title">My toolkit</h2>
+            <h2 className="hx-title">My skillbox</h2>
           </div>
         </Reveal>
 
@@ -77,19 +85,14 @@ const SkillsSection = () => {
 
                 <div className="sk-top">
                   <div>
-                    <div className="sk-idx" aria-hidden="true">
-                      {pad(i + 1)}
-                    </div>
+                   
                   </div>
+                <h3 className="sk-cat">{cat.category}</h3>
                   <div className="sk-diamond" aria-hidden="true">
                     <span>{cat.icon}</span>
                   </div>
                 </div>
 
-                <div className="sk-code" aria-hidden="true">
-                  MOD / {pad(i + 1)}.{pad(total)}
-                </div>
-                <h3 className="sk-cat">{cat.category}</h3>
                 <div className="sk-scale" aria-hidden="true" />
 
                 <ul className="sk-list">

@@ -2,12 +2,10 @@
 
 /* ============ HUD — global design layer ============ */
 
-html{
-  background-color: #030303fa;
-}
+
 
 :root {
-  --hud-bg: #04070a54;
+  
   --hud-panel: rgba(4, 7, 10, 0.88);
   --hud-green: #00ff9d;
   --hud-cyan: #00e0ff;
@@ -30,17 +28,9 @@ html{
   display: flex; flex-direction: column; gap: .12em;
 }
 /* ---------- section shell + ambient layers ---------- */
-.hud { position: relative; isolation: isolate; overflow: hidden; background: var(--hud-bg); }
+.hud {margin-top: 20%; position: relative; isolation: isolate; overflow: hidden; }
 
-.hud-grid {
-  position: absolute; inset: 0; z-index: -3; pointer-events: none; opacity: 0.35;
-  background-image:
-    linear-gradient(var(--hud-line-soft) 1px, transparent 1px),
-    linear-gradient(90deg, var(--hud-line-soft) 1px, transparent 1px);
-  background-size: 64px 64px;
-  mask-image: radial-gradient(ellipse at 60% 50%, #000 20%, transparent 75%);
-  -webkit-mask-image: radial-gradient(ellipse at 60% 50%, #000 20%, transparent 75%);
-}
+
 .hud-scanlines {
   position: absolute; inset: 0; z-index: 5; pointer-events: none; mix-blend-mode: multiply;
   background: repeating-linear-gradient(0deg, rgba(0,0,0,.18) 0 1px, transparent 1px 3px);
@@ -129,14 +119,6 @@ html{
 .hud-jitter { animation: hud-jit 2.6s steps(1) infinite; }
 @keyframes hud-jit { 0%,94%,100%{transform:none} 95%{transform:translateX(-2px)} 97%{transform:translateX(2px)} }
 /* section background + padding (use with .hud) */
-.hud-aurora {
-  padding: clamp(6rem, 12vw, 11rem) var(--hud-pad);
- 
-  /* background:
-    radial-gradient(55rem 34rem at 15% 0%, rgba(0, 224, 255, 0.06), transparent 70%),
-    radial-gradient(55rem 34rem at 90% 100%, rgba(0, 255, 157, 0.07), transparent 70%),
-    var(--hud-solid); */
-}
 
 .hud-beam {
   position: absolute; left: 0; right: 0; top: 0; height: 1px; z-index: -1; pointer-events: none;
@@ -281,7 +263,8 @@ a:hover {
 
 html {
   scroll-behavior: smooth;
-  background: #020608;
+  background-color: var(--hud-bg);
+ 
 }
 ::-webkit-scrollbar {
   width: 2px;

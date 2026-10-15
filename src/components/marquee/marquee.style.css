@@ -9,6 +9,7 @@
   --mq-mono: "Share Tech Mono", ui-monospace, monospace;
   position: relative; z-index: 1; overflow: hidden; background: var(--mq-bg);
   border-block: 2px solid rgba(0, 255, 157, 0.55);
+  background-color: var(--hud-bg);
 }
 
 /* HUD end-caps */

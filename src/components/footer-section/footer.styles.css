@@ -11,8 +11,7 @@
 
   position: relative; z-index: 1; overflow: hidden;
   padding: 0 clamp(1.25rem, 4vw, 3rem) 1.5rem;
-  margin-top: 100px;
-  background: rgba(4, 7, 10, 0.9);
+  background-color: var(--hud-bg);
   border-top: 1px solid var(--hxf-line-soft);
   font-family: var(--hxf-mono);
 }

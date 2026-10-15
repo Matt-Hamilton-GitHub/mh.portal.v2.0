@@ -1,3 +1,6 @@
+#contact{
+  padding-bottom: 20%;
+}
 .ct-inner { max-width: 78rem; margin-inline: auto; }
 .ct-top { display: flex; flex-direction: column; align-items: center; gap: 2rem; margin-bottom: clamp(3rem, 6vw, 5rem); text-align: center; }
 

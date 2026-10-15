@@ -115,7 +115,7 @@ const ContactSection = () => {
   const first = form.name.trim().split(" ")[0];
 
   return (
-    <section id="contact" className="hud  ct">
+    <section id="contact" className="hud ct">
      
       <div className="ct-inner">
         <Reveal>
@@ -238,7 +238,7 @@ const ContactSection = () => {
 
                 <button
                   type="submit"
-                  className="hud-btn primary ct-send cursor-none"
+                  className="hud-btn primary ct-send cursor-pointer"
                   data-sending={sending}
                   disabled={sending}
                 >

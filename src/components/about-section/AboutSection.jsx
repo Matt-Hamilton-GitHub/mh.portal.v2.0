@@ -43,13 +43,6 @@ const AboutSection = () => {
 
   return (
     <section id="about" className="hud ab w-full">
-      {/* <div className="hud-grid" aria-hidden="true" />
-      <div className="hud-beam" aria-hidden="true" />
-      <div className="hud-ghost" aria-hidden="true">01</div>
-      <span className="hud-meta tl" aria-hidden="true">Section <b>01</b></span>
-      <span className="hud-meta tr" aria-hidden="true">Rev 2026.10</span>
-      <span className="hud-meta bl" aria-hidden="true">Profile // Bio</span>
-      <span className="hud-meta br" aria-hidden="true">Status · <b>Online</b></span> */}
 
       <div className="ab-inner">
         <Reveal>

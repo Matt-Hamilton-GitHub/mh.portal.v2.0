@@ -15,26 +15,11 @@
   --sx: .75rem;    /* spine x-position */
   position: relative; isolation: isolate; overflow: hidden; z-index: 1;
   padding: clamp(6rem, 12vw, 11rem) clamp(1.25rem, 5vw, 4rem);
-  background:
-    radial-gradient(60rem 36rem at 50% 0%, rgba(0, 255, 157, 0.07), transparent 70%),
-    radial-gradient(50rem 30rem at 90% 100%, rgba(0, 224, 255, 0.06), transparent 70%),
-    var(--sk-bg);
-  
+ background-color: var(--hud-bg);
 }
 @media (min-width: 768px) { .ex { --off: 5.5rem; --sx: 1.5rem; } }
 
-/* ---------- background ---------- */
-/* .ex-grid-bg {
-  position: absolute; inset: 0; z-index: -3; pointer-events: none; opacity: .9;
-  background-image:
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='96'%3E%3Cpath d='M48 43v10M43 48h10' stroke='%2300ff9d' stroke-opacity='.5' stroke-width='1' fill='none'/%3E%3C/svg%3E"),
-    linear-gradient(var(--ex-hair) 1px, transparent 1px),
-    linear-gradient(90deg, var(--ex-hair) 1px, transparent 1px);
-  background-size: 96px 96px;
-  background-position: -48px -48px, 0 0, 0 0;
-  mask-image: radial-gradient(ellipse at 40% 20%, #000 10%, transparent 75%);
-  -webkit-mask-image: radial-gradient(ellipse at 40% 20%, #000 10%, transparent 75%);
-} */
+
 .ex-beam {
   position: absolute; left: 0; right: 0; top: 0; height: 1px; z-index: -1; pointer-events: none;
   background: linear-gradient(90deg, transparent, rgba(0,255,157,.8) 50%, transparent);

@@ -1,6 +1,6 @@
 /* ============ ABOUT — matrix HUD (centered column) ============ */
 .ab {
-  --ab-bg: #04070a54;
+  --ab-bg: #04070a;
   --ab-green: #00ff9d;   /* 14:1 on bg */
   --ab-cyan: #00e0ff;
   --ab-pink: #ff2e6e;
@@ -13,17 +13,8 @@
   --ab-display: "Clash Display", sans-serif;
   position: relative; isolation: isolate; overflow: hidden; z-index: 1;
   padding: clamp(5rem, 10vw, 10rem) clamp(1.25rem, 5vw, 4rem);
+  background-color: var(--hud-bg);
   
-}
-/* faint grid */
-.ab::before { 
-  content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; opacity: .25;
-  background-image:
-    linear-gradient(var(--ab-line-soft) 1px, transparent 1px),
-    linear-gradient(90deg, var(--ab-line-soft) 1px, transparent 1px);
-  background-size: 64px 64px;
-  mask-image: radial-gradient(ellipse at 50% 45%, #000, transparent 72%);
-  -webkit-mask-image: radial-gradient(ellipse at 50% 45%, #000, transparent 72%);
 }
 .ab-inner { max-width: 62rem; margin-inline: auto; text-align: center; display: flex; flex-direction: column; align-items: center; }
 
