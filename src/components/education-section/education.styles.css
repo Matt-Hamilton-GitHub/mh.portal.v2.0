@@ -1,5 +1,5 @@
-.ed { --ed-gold: #FDB515; --row: 56px; }
-@media (max-width: 640px) { .ed { --row: 64px; } }
+.ed {padding-top: 200px; --ed-gold: #FDB515; --row: 56px; }
+@media (max-width: 640px) { .ed { --row: 64px; padding-top: 100px; } }
 
 .ed-inner { max-width: 78rem; margin-inline: auto; }
 .ed-head { display: flex; justify-content: center; margin-bottom: clamp(3rem, 6vw, 5rem); }

@@ -18,8 +18,8 @@ const Group = ({ hidden = false }) => (
 
 const Marquee = () => (
   <div className="mq" role="marquee" aria-label={MARQUEE_WORDS.join(", ")}>
-    <span className="mq-tick tl" /><span className="mq-tick tr" />
-    <span className="mq-tick bl" /><span className="mq-tick br" />
+    <span className=" tl" /><span className=" tr" />
+    <span className=" bl" /><span className=" br" />
     <div className="mq-scan" aria-hidden="true" />
 
     <div className="mq-row-wrap">

@@ -28,8 +28,7 @@
   display: flex; flex-direction: column; gap: .12em;
 }
 /* ---------- section shell + ambient layers ---------- */
-.hud {margin-top: 20%; position: relative; isolation: isolate; overflow: hidden; }
-
+.hud {margin:  100px 0  ; position: relative; isolation: isolate; overflow: hidden; }
 
 .hud-scanlines {
   position: absolute; inset: 0; z-index: 5; pointer-events: none; mix-blend-mode: multiply;
@@ -203,7 +202,9 @@
 }
 
 /* ============ matrix bracket section title ============ */
+
 .st { gap: clamp(.6rem, 1.4vw, 1rem); }
+
 
 /* the layout swap means the right line is no longer :last-child, so style it explicitly */
 .st .ln { position: relative; }
@@ -240,6 +241,7 @@
 .st[data-seen="true"] .ln::after { opacity: 1; animation: st-run 3s linear 1.2s infinite; }
 .st .ln.r::after { left: auto; right: -18px; transform: scaleX(-1); }
 .st[data-seen="true"] .ln.r::after { animation-name: st-run-r; }
+
 
 @keyframes st-open {
   from { transform: translateX(var(--dx)) scaleY(.2); opacity: 0; }

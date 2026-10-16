@@ -23,7 +23,7 @@ const ExperienceSection = () => {
   const total = EXPERIENCE.length;
 
   return (
-    <section id="experience" className="ex">
+    <section id="experience" className="ex hud">
       {/* background + decoration */}
       <div className="ex-grid-bg" aria-hidden="true" />
       <div className="ex-beam" aria-hidden="true" />

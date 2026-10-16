@@ -1,0 +1,109 @@
+/* ============ GLITCH DOOR — small neon exit, matches .hx ============ */
+.hxd {
+  --hxd-green: #00ff9d;
+  --hxd-cyan: #00e0ff;
+  --hxd-pink: #ff2e6e;
+  --hxd-dim: #8fa8c0;
+  --hxd-bg: #04070a;
+  --hxd-w: clamp(88px, 9vw, 128px);
+  --hxd-mono: "Share Tech Mono", ui-monospace, monospace;
+
+  display: inline-grid; justify-items: center; gap: 0.7rem;
+  padding: 0.5rem; background: none; border: 0; color: var(--hxd-green);
+  font-family: var(--hxd-mono);
+}
+.hxd:focus-visible { outline: 2px solid #fff; outline-offset: 6px; }
+
+/* ---------- layers ---------- */
+.hxd-stack { position: relative; display: block; width: var(--hxd-w); aspect-ratio: 120 / 190; }
+.hxd-layer { position: absolute; inset: 0; display: block; }
+.hxd-svg {
+  width: 100%; height: 100%; display: block; overflow: visible;
+  fill: none; stroke: currentColor; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round;
+}
+
+.hxd-layer.base {
+  color: var(--hxd-green);
+  filter: drop-shadow(0 0 5px rgba(0, 255, 157, 0.75)) drop-shadow(0 0 16px rgba(0, 255, 157, 0.35));
+  animation: hxd-jit 5.3s steps(1) infinite;
+}
+.hxd-layer.ghost { mix-blend-mode: screen; clip-path: inset(0 0 100% 0); }
+.hxd-layer.pink { color: var(--hxd-pink); animation: hxd-slice-a 4.6s steps(1) infinite; }
+.hxd-layer.cyan { color: var(--hxd-cyan); animation: hxd-slice-b 4.6s steps(1) infinite; }
+
+/* ---------- parts ---------- */
+.hxd-sign text { fill: currentColor; stroke: none; font-family: var(--hxd-mono); font-size: 14px; letter-spacing: 0.15em; }
+.hxd-sign { animation: hxd-flicker 4.3s steps(1) infinite; }
+.hxd-frame { animation: hxd-flicker 6.1s steps(1) infinite; }
+
+.hxd-panel { transform-box: fill-box; transform-origin: left center; transition: transform .5s cubic-bezier(.2, .8, .2, 1); }
+.hxd-panel rect, .hxd-panel circle { vector-effect: non-scaling-stroke; }
+.hxd-layer.base .hxd-panel rect { fill: var(--hxd-bg); }
+.hxd-knob { fill: currentColor; stroke: none; }
+
+.hxd-interior { opacity: 0; transition: opacity .3s; }
+.hxd-glow { fill: rgba(0, 255, 157, 0.2); stroke: none; }
+.hxd-col { fill: var(--hxd-green); stroke: none; font: 8px var(--hxd-mono); opacity: 0.85; animation: hxd-fall var(--t, 2.8s) linear infinite; }
+
+.hxd-leak { fill: currentColor; stroke: none; animation: hxd-pulse 2.4s ease-in-out infinite; }
+.hxd-spill { fill: rgba(0, 255, 157, 0); stroke: none; transition: fill .4s; }
+
+/* ---------- open on hover / focus ---------- */
+.hxd:hover .hxd-panel, .hxd:focus-visible .hxd-panel { transform: scaleX(0.28) skewY(-7deg); }
+.hxd:hover .hxd-interior, .hxd:focus-visible .hxd-interior { opacity: 1; }
+.hxd:hover .hxd-spill, .hxd:focus-visible .hxd-spill { fill: rgba(0, 255, 157, 0.22); }
+.hxd:hover .hxd-leak, .hxd:focus-visible .hxd-leak { opacity: 0; }
+.hxd:hover .hxd-layer.pink, .hxd:focus-visible .hxd-layer.pink { animation-duration: 1.5s; }
+.hxd:hover .hxd-layer.cyan, .hxd:focus-visible .hxd-layer.cyan { animation-duration: 1.5s; }
+.hxd:hover .hxd-layer.base, .hxd:focus-visible .hxd-layer.base { animation-duration: 1.7s; }
+
+/* ---------- label ---------- */
+.hxd-label {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  font-size: 0.85rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--hxd-dim);
+  transition: color .2s, text-shadow .2s;
+}
+.hxd:hover .hxd-label, .hxd:focus-visible .hxd-label { color: var(--hxd-green); text-shadow: 0 0 14px rgba(0, 255, 157, 0.5); }
+.hxd-dot { width: 8px; height: 8px; background: var(--hxd-green); box-shadow: 0 0 10px var(--hxd-green); animation: hxd-blink 1.4s steps(2, jump-none) infinite; }
+
+/* ---------- keyframes ---------- */
+@keyframes hxd-flicker {
+  0%, 18%, 22%, 60%, 100% { opacity: 1; }
+  19% { opacity: 0.2; }
+  21% { opacity: 0.6; }
+  61% { opacity: 0.3; }
+  63% { opacity: 1; }
+  82% { opacity: 0.4; }
+  83% { opacity: 1; }
+}
+@keyframes hxd-blink { 50% { opacity: 0.15; } }
+@keyframes hxd-pulse { 0%, 100% { opacity: 0.35; } 50% { opacity: 1; } }
+@keyframes hxd-fall { to { transform: translateY(136px); } }
+
+@keyframes hxd-jit {
+  0%, 90%, 100% { transform: none; }
+  91% { transform: translateX(-2px); }
+  93% { transform: translateX(3px) skewX(-6deg); }
+  95% { transform: translateX(-1px); }
+  97% { transform: translateX(2px) skewX(3deg); }
+}
+@keyframes hxd-slice-a {
+  0%, 90%, 100% { clip-path: inset(0 0 100% 0); transform: none; }
+  91% { clip-path: inset(10% 0 62% 0); transform: translate(-6px, 0); }
+  93% { clip-path: inset(55% 0 20% 0); transform: translate(5px, 0); }
+  95% { clip-path: inset(30% 0 45% 0); transform: translate(-4px, 0); }
+  97% { clip-path: inset(78% 0 5% 0); transform: translate(3px, 0); }
+}
+@keyframes hxd-slice-b {
+  0%, 90%, 100% { clip-path: inset(0 0 100% 0); transform: none; }
+  92% { clip-path: inset(40% 0 38% 0); transform: translate(6px, 0); }
+  94% { clip-path: inset(5% 0 80% 0); transform: translate(-5px, 0); }
+  96% { clip-path: inset(68% 0 12% 0); transform: translate(4px, 0); }
+  98% { clip-path: inset(22% 0 55% 0); transform: translate(-3px, 0); }
+}
+
+/* ---------- motion preferences ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .hxd *, .hxd-layer { animation: none !important; transition: none !important; }
+  .hxd-layer.ghost { display: none; }
+}

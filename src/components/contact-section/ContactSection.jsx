@@ -115,7 +115,7 @@ const ContactSection = () => {
   const first = form.name.trim().split(" ")[0];
 
   return (
-    <section id="contact" className="hud ct">
+    <section id="contact" className="ct">
      
       <div className="ct-inner">
         <Reveal>

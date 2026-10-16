@@ -139,7 +139,7 @@ const ProjectsSection = () => {
   };
 
   return (
-    <section id="projects" className="hud  pj">
+    <section id="projects" className="hud pj">
       {/* <div className="hud-grid" aria-hidden="true" />
       <div className="hud-beam" aria-hidden="true" />
       <div className="hud-ghost" aria-hidden="true">04</div>

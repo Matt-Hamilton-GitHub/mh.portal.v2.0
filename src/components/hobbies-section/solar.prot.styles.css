@@ -1,0 +1,73 @@
+/* ============ SOLAR PROTO — full-bleed, Matrix HUD ============ */
+.sp {
+  /* same values as the .hx tokens, so it works inside or outside .hx */
+  --sp-green: #00ff9d;
+  --sp-cyan: #00e0ff;
+  --sp-text: #f2f8ff;
+  --sp-soft: #b8cde2;
+  --sp-dim: #8fa8c0;
+  --sp-line: rgba(0, 255, 157, 0.55);
+  --sp-line-soft: rgba(0, 255, 157, 0.22);
+  --sp-mono: "Share Tech Mono", ui-monospace, monospace;
+
+  /* 100vw, centered even when the parent is narrower */
+  position: relative;
+  width: 100vw;
+  max-width: 100vw;
+  margin-left: calc(50% - 50vw);
+  display: grid;
+  gap: 1rem;
+  font-family: var(--sp-mono);
+}
+
+.sp-stage { position: relative; width: 100%; height: clamp(420px, 64vh, 780px); }
+.sp-canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; touch-action: pan-y; cursor: crosshair; }
+
+/* HUD corner brackets */
+.sp-corner { position: absolute; width: 18px; height: 18px; border: 0 solid var(--sp-green); pointer-events: none; }
+.sp-corner.tl { top: 1rem; left: clamp(1rem, 4vw, 3rem); border-top-width: 2px; border-left-width: 2px; }
+.sp-corner.tr { top: 1rem; right: clamp(1rem, 4vw, 3rem); border-top-width: 2px; border-right-width: 2px; }
+.sp-corner.bl { bottom: 1rem; left: clamp(1rem, 4vw, 3rem); border-bottom-width: 2px; border-left-width: 2px; }
+.sp-corner.br { bottom: 1rem; right: clamp(1rem, 4vw, 3rem); border-bottom-width: 2px; border-right-width: 2px; }
+
+/* ---------- readout overlay (matches .hx-term) ---------- */
+.sp-readout {
+  position: absolute; left: calc(clamp(1rem, 4vw, 3rem) + 1rem); bottom: 2.25rem;
+  width: min(21rem, calc(100% - 3rem));
+  border: 1px solid var(--sp-line); background: rgba(4, 7, 10, 0.88);
+  font-size: 0.9rem; line-height: 1.65; color: var(--sp-soft);
+  padding: 0.8rem 1.1rem;
+  animation: sp-in .3s ease-out;
+}
+.sp-readout .hd { display: block; color: var(--sp-dim); letter-spacing: 0.2em; font-size: 0.8rem; margin-bottom: 0.25rem; }
+.sp-readout em { color: var(--sp-green); font-style: normal; }
+.sp-readout b { color: var(--sp-green); font-weight: 400; font-variant-numeric: tabular-nums; }
+.sp-readout .role { color: var(--sp-text); }
+.sp-readout .rel { color: var(--sp-dim); }
+@keyframes sp-in { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+
+/* ---------- body chips ---------- */
+.sp-legend {
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 0.3rem 1.25rem;
+  list-style: none; margin: 0; padding: 0 clamp(1rem, 4vw, 3rem) 1rem;
+}
+.sp-chip {
+  display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.35rem 0;
+  font-family: var(--sp-mono); font-size: 0.85rem; letter-spacing: 0.12em;
+  color: var(--sp-dim); background: none; border: 0; transition: color .2s;
+}
+.sp-chip i { width: 9px; height: 9px; border-radius: 50%; display: inline-block; }
+.sp-chip:hover, .sp-chip.is-active { color: var(--sp-green); }
+.sp-chip:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
+
+/* ---------- small screens: square stage, readout sits below ---------- */
+@media (max-width: 700px) {
+  .sp-stage { height: auto; display: grid; }
+  .sp-canvas { position: relative; height: 100vw; min-height: 340px; }
+  .sp-readout { position: static; margin: 0.75rem auto 0; width: calc(100% - 2rem); }
+  .sp-corner { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sp-readout { animation: none; }
+}
