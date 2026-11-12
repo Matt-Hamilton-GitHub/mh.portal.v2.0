@@ -176,7 +176,7 @@ const ContactSection = () => {
 
                 {finished && (
                   <button type="button" className="hud-btn ghost ct-again" onClick={reset}>
-                    SEND ANOTHER ↗
+                    SEND ANOTHER
                   </button>
                 )}
               </div>

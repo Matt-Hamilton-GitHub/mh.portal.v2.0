@@ -84,7 +84,7 @@ export default function HeroSection() {
                 className="hx-btn ghost cursor-pointer"
                 onClick={() => scrollTo("contact")}
               >
-                GET IN TOUCH ↗
+                GET IN TOUCH
               </button>
             </div>
             <div className="hx-prompt" aria-hidden="true">

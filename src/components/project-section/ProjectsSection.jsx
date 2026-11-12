@@ -74,12 +74,12 @@ function Detail({ p, index, total, onOpen }) {
           <div className="pj-actions">
             {p.link && (
               <a className="hud-btn primary" href={p.link} target="_blank" rel="noopener noreferrer">
-                VIEW PROJECT ↗<span className="sr-only"> (opens in a new tab)</span>
+                VIEW PROJECT <span className="sr-only"> (opens in a new tab)</span>
               </a>
             )}
             {p.repo && (
               <a className="hud-btn ghost" href={p.repo} target="_blank" rel="noopener noreferrer">
-                SOURCE CODE ↗<span className="sr-only"> (opens in a new tab)</span>
+                SOURCE CODE <span className="sr-only"> (opens in a new tab)</span>
               </a>
             )}
           </div>
