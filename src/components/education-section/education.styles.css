@@ -3,7 +3,7 @@
 
 .ed-inner { max-width: 78rem; margin-inline: auto; }
 .ed-head { display: flex; justify-content: center; margin-bottom: clamp(3rem, 6vw, 5rem); }
-.ed-grid { display: grid; gap: clamp(3rem, 6vw, 6rem); align-items: center; }
+.ed-flex { display: flex; gap: clamp(3rem, 6vw, 6rem); align-items: center; justify-content: center; flex-wrap: wrap-reverse;}
 @media (min-width: 900px) { .ed-grid { grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); } }
 
 /* ---------- text column ---------- */

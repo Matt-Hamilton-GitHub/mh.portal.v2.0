@@ -20,7 +20,7 @@ const EducationSection = () => (
         </div>
       </Reveal>
 
-      <div className="ed-grid">
+      <div className="ed-flex">
         <Reveal>
           <EducationVisual />
         </Reveal>
