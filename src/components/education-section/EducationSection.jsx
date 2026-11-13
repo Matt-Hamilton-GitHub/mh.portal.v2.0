@@ -6,13 +6,13 @@ const HEADING = ["University of", "California,", "Berkeley."];
 const TONE = ["ed-t1", "ed-t2", "ed-t3"];
 
 const EducationSection = () => (
-  <section id="education" className="hud hud-aurora ed">
+  <section id="education" className="glob glob-aurora ed">
     
 
     <div className="ed-inner">
       <Reveal>
         <div className="ed-head">
-          <div className="hud-eyebrow">
+          <div className="glob-eyebrow">
             <span className="ln" /><span className="dia" />
             <span>EDUCATION</span>
             <span className="dia" /><span className="ln" />
@@ -27,7 +27,7 @@ const EducationSection = () => (
 
         <div className="ed-text">
           <Reveal>
-            <h2 className="hud-display ed-h2">
+            <h2 className="glob-display ed-h2">
               {HEADING.map((text, i) => (
                 <span
                   key={text}

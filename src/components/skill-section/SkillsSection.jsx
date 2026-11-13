@@ -83,28 +83,28 @@ const SkillsSection = () => {
   const paths = geo && geo.cats.length === total ? buildPaths(geo, wide) : null;
 
   return (
-    <section id="skills" className="hud hud-aurora sk">
+    <section id="skills" className="glob glob-aurora sk">
       <div className="sk-inner">
         <Reveal>
           <div className="sk-head">
             <div className="ed-head">
-          <div className="hud-eyebrow">
+          <div className="glob-eyebrow">
             <span className="ln" /><span className="dia" />
             <span>Skills</span>
             <span className="dia" /><span className="ln" />
           </div>
         </div>
-            <h2 className="hud-display sk-h2 glitch" data-text="My skillbox" style={{ "--g-dur": "7s" }}>
+            <h2 className="glob-display sk-h2 glitch" data-text="My skillbox" style={{ "--g-dur": "7s" }}>
               My <em>toolbox</em>
             </h2>
-            <div className="hud-sub" aria-hidden="true">
-              <i /> <b>{pad(total)}</b> BRANCHES · <b>{pad(tools)}</b> TOOLS LOADED
+            <div className="glob-sub" aria-hidden="true">
+              <b>{pad(total)}</b> BRANCHES · <b>{pad(tools)}</b> TOOLS LOADED
             </div>
           </div>
         </Reveal>
 
         <Reveal delay={0.1}>
-          <div ref={treeRef} className="hud-hairline sk-tree" data-wide={wide}>
+          <div ref={treeRef} className="glob-hairline sk-tree" data-wide={wide}>
             <Ticks />
             <CodeRain className="sk-rain" />
 
@@ -129,11 +129,11 @@ const SkillsSection = () => {
 
             {/* ---------- root ---------- */}
             <div className="sk-root">
-              <span className="hud-label">// ROOT · 0x00</span>
-              <div className="hud-display sk-root-t glitch" data-text={ROOT.title} style={{ "--g-dur": "6s" }}>
+              <span className="glob-label">// ROOT · 0x00</span>
+              <div className="glob-display sk-root-t glitch" data-text={ROOT.title} style={{ "--g-dur": "6s" }}>
                 {ROOT.title}
               </div>
-              <span className="hud-label">{ROOT.sub}</span>
+              <span className="glob-label">{ROOT.sub}</span>
               <span className="sk-anchor sk-ra" ref={rootAnchor} />
             </div>
 
@@ -159,8 +159,8 @@ const SkillsSection = () => {
                     <span className="sk-anchor sk-ca" ref={(el) => (anchors.current[i] = el)} />
                     <span className="sk-dia" aria-hidden="true"><span>{cat.icon}</span></span>
                     <div>
-                      <h3 className="hud-display sk-name">{cat.category}</h3>
-                      <div className="hud-label sk-sub" aria-hidden="true">
+                      <h3 className="glob-display sk-name">{cat.category}</h3>
+                      <div className="glob-label sk-sub" aria-hidden="true">
                         {hex(i)} · <b>{pad(cat.items.length)}</b> TOOLS
                       </div>
                     </div>

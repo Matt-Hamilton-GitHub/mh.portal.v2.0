@@ -42,13 +42,13 @@ const AboutSection = () => {
   const { lead, body } = splitAbout(ME.about);
 
   return (
-    <section id="about" className="hud ab w-full">
+    <section id="about" className="glob ab w-full">
 
       <div className="ab-inner">
         <Reveal>
           <div className="ab-head">
             
-            <h2 className="hud-display ab-h2">
+            <h2 className="glob-display ab-h2">
               {HEADING.map((text, i) => (
                 <span
                   key={text}
@@ -64,19 +64,19 @@ const AboutSection = () => {
         </Reveal>
 
         <Reveal delay={0.12}>
-          <div className="ab-copy">
+          <div className="glob-manifesto">
             
             {body.map((para, i) => <p key={i} className="ab-p">{para}</p>)}
           </div>
         </Reveal>
 
         <Reveal delay={0.22} style={{ width: "100%" }}>
-          <dl className="hud-hairline ab-facts">
+          <dl className="glob-hairline ab-facts">
             <Ticks />
             {FACTS.map(([v, l]) => (
               <div key={l} className="ab-fact">
-                <dt className="hud-label">{l}</dt>
-                <dd>{v}</dd>
+                <dt className="glob-label">{l}</dt>
+                <dd style={{"font-family":"var(--glob-display)"}}>{v}</dd>
               </div>
             ))}
           </dl>
@@ -90,7 +90,7 @@ const AboutSection = () => {
 
       <div className="ab-chips" aria-hidden="true">
         {CHIPS.map(({ g, l, pos, bd, bw }) => (
-          <span key={l} className="hud-tag ab-chip" style={{ ...pos, "--bd": bd, "--bw": bw }}>
+          <span key={l} className="glob-tag ab-chip" style={{ ...pos, "--bd": bd, "--bw": bw }}>
             <b>{g}</b>{l}
           </span>
         ))}

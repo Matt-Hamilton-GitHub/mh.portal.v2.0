@@ -155,8 +155,8 @@ export default function HeroEcosystem() {
       >
         <defs>
           <radialGradient id="hx-eco-glow">
-            <stop offset="0%" style={{ stopColor: "var(--hx-green)", stopOpacity: 0.22 }} />
-            <stop offset="100%" style={{ stopColor: "var(--hx-green)", stopOpacity: 0 }} />
+            <stop offset="0%" style={{ stopColor: "var(--glob-green)", stopOpacity: 0.22 }} />
+            <stop offset="100%" style={{ stopColor: "var(--glob-green)", stopOpacity: 0 }} />
           </radialGradient>
         </defs>
 

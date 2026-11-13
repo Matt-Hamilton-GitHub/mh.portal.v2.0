@@ -55,7 +55,7 @@ function useScramble(text, active, duration = 1000) {
 function Field({ label, meta, filled, i, children }) {
   return (
     <label className="ct-field" data-filled={filled} style={{ "--i": i }}>
-      <span className="ct-head hud-label">
+      <span className="ct-head glob-label">
         <span><span aria-hidden="true">&gt; </span>{label}</span>
         <span className="ct-right" aria-hidden="true">
           {meta && <em>{meta}</em>}
@@ -120,12 +120,12 @@ const ContactSection = () => {
       <div className="ct-inner">
         <Reveal>
           <div className="ct-top">
-            <div className="hud-eyebrow">
+            <div className="glob-eyebrow">
               <span className="ln" /><span className="dia" />
               <span>CONTACT</span>
               <span className="dia" /><span className="ln" />
             </div>
-            <h2 className="hud-display ct-h2">
+            <h2 className="glob-display ct-h2">
               {HEADING.map((text, i) => (
                 <span
                   key={text}
@@ -137,7 +137,7 @@ const ContactSection = () => {
                 </span>
               ))}
             </h2>
-            <p className="ct-lead">
+            <p className="glob-manifesto">
               Whether it's a new project, a collaboration, or just a conversation — I'm all ears.
             </p>
           </div>
@@ -146,7 +146,7 @@ const ContactSection = () => {
         {sent ? (
           <Reveal>
             <div className="ct-wrap">
-              <div className="hud-hairline ct-done">
+              <div className="glob-hairline ct-done">
                 <Ticks />
                 <CodeRain className="ct-rain" />
                 <span className="sr-only" role="status">
@@ -154,7 +154,7 @@ const ContactSection = () => {
                 </span>
 
                 <div className="ct-done-inner" aria-hidden="true">
-                  <span className="hud-label">// TRANSMISSION LOG</span>
+                  <span className="glob-label">// TRANSMISSION LOG</span>
                   <ul className="ct-log">
                     {LOG.slice(0, shown).map((l) => (
                       <li key={l}><span className="ok">[ OK ]</span> {l}…</li>
@@ -163,19 +163,19 @@ const ContactSection = () => {
 
                   {finished && (
                     <>
-                      <div className="hud-display ct-done-t glitch" data-text="MESSAGE DELIVERED" style={{ "--g-dur": "4s" }}>
+                      <div className="glob-display ct-done-t glitch" data-text="MESSAGE DELIVERED" style={{ "--g-dur": "4s" }}>
                         {title}
                       </div>
                       <p className="ct-done-p">
                         {first ? `Thanks, ${first}. ` : ""}I'll be in touch soon!
-                        <span className="hud-caret" style={{ marginLeft: 8 }} />
+                        <span className="glob-caret" style={{ marginLeft: 8 }} />
                       </p>
                     </>
                   )}
                 </div>
 
                 {finished && (
-                  <button type="button" className="hud-btn ghost ct-again" onClick={reset}>
+                  <button type="button" className="glob-btn ghost ct-again" onClick={reset}>
                     SEND ANOTHER
                   </button>
                 )}
@@ -185,10 +185,10 @@ const ContactSection = () => {
         ) : (
           <Reveal delay={0.1}>
             <div className="ct-wrap">
-              <form className="hud-hairline ct-form" onSubmit={handleSubmit} aria-busy={sending}>
+              <form className="glob-hairline ct-form" onSubmit={handleSubmit} aria-busy={sending}>
                 <Ticks />
 
-                <div className="ct-bar hud-label" aria-hidden="true">
+                <div className="ct-bar glob-label" aria-hidden="true">
                   <span><i className="ct-led" /> NEW TRANSMISSION</span>
                   <span><b>{pct}%</b> READY</span>
                 </div>
@@ -238,7 +238,7 @@ const ContactSection = () => {
 
                 <button
                   type="submit"
-                  className="hud-btn primary ct-send cursor-pointer"
+                  className="glob-btn primary ct-send cursor-pointer"
                   data-sending={sending}
                   disabled={sending}
                 >
@@ -250,8 +250,8 @@ const ContactSection = () => {
                 </button>
               </form>
 
-              <div className="hud-label ct-foot" aria-hidden="true">
-                <span className="hud-dot" /> <b>CHANNEL OPEN</b> · AWAITING INPUT
+              <div className="glob-label ct-foot" aria-hidden="true">
+                <span className="glob-dot" /> <b>CHANNEL OPEN</b> · AWAITING INPUT
               </div>
             </div>
           </Reveal>

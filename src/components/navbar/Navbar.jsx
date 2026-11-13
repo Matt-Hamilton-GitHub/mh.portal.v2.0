@@ -50,7 +50,7 @@ const Navbar = () => {
     <header className={`hxn${scrolled ? " is-scrolled" : ""}${open ? " is-open" : ""}`}>
       <nav className="hxn-bar" aria-label="Primary">
         <button type="button" className="hxn-brand cursor-pointer" onClick={() => go("home")}>
-          <span className="hxn-dot" aria-hidden="true" />
+
           The Matthix
         </button>
 

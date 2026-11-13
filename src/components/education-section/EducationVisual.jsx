@@ -22,7 +22,7 @@ export default function EducationVisual() {
   });
 
   return (
-    <div className="hud-hairline ed-tree">
+    <div className="glob-hairline ed-tree">
       <Ticks />
 
       <div className="ed-rain" aria-hidden="true">
@@ -32,11 +32,11 @@ export default function EducationVisual() {
       </div>
 
       <div className="ed-root">
-        <span className="hud-label">BERKELEY, CA · EST. 1868</span>
-        <div className="hud-display ed-root-t glitch" data-text="UC BERKELEY" style={{ "--g-dur": "7s" }}>
+        <span className="glob-label">BERKELEY, CA · EST. 1868</span>
+        <div className="glob-display ed-root-t glitch" data-text="UC BERKELEY" style={{ "--g-dur": "7s" }}>
           UC BERKELEY
         </div>
-        <span className="hud-label">B.S. · CS &amp; EE</span>
+        <span className="glob-label">B.S. · CS &amp; EE</span>
       </div>
 
       <div className="ed-branches">
@@ -72,11 +72,11 @@ export default function EducationVisual() {
       </div>
 
       <div className="ed-end">
-        <span className="hud-label">GRADUATED</span>
-        {/* <b className="hud-display">Class of 2024</b> */}
+        <span className="glob-label">GRADUATED</span>
+        {/* <b className="glob-display">Class of 2024</b> */}
       </div>
 
-      <div className="hud-label ed-cap" aria-hidden="true">
+      <div className="glob-label ed-cap" aria-hidden="true">
         // RELEVANT COURSEWORK · <b>{pad(n)}</b> NODES
       </div>
     </div>

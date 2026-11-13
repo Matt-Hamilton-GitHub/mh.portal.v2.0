@@ -6,8 +6,8 @@ import "./experience.styles.css";
 
 const Ticks = () => (
   <>
-    <span className="ex-tick tl" /><span className="ex-tick tr" />
-    <span className="ex-tick bl" /><span className="ex-tick br" />
+    <span className="ex-tick tl" /><span className="glob-tick tr" />
+    <span className="glob-tick bl" /><span className="ex-tick br" />
   </>
 );
 
@@ -47,7 +47,7 @@ const ExperienceSection = () => {
               ))}
             </h2>
             <div className="ex-sub" aria-hidden="true">
-              <i /> <b>{pad(total)}</b> ENTRIES LOGGED
+               <b>{pad(total)}</b> ENTRIES LOGGED
             </div>
           </div>
         </Reveal>

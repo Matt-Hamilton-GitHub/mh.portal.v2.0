@@ -2,7 +2,6 @@
 
 import DecElements from "./DecElements";
 import PortalMainPage from './PortalMainPage';
-
 function App() {
 
   return (

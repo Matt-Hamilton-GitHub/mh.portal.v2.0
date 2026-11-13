@@ -53,7 +53,7 @@ export default function HeroSection() {
 
           <div className="hero-2" style={{ display: "grid", gap: "1.5rem" }}>
             <MatrixName name={ME.name} />
-            <h1 className="hx-title">
+            <h1 className="glob-title">
               {tagline.slice(0, 3).map((line, i) => (
                 <span
                   key={i}

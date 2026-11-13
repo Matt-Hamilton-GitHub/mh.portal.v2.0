@@ -32,12 +32,12 @@ function Lightbox({ state, onClose, onStep }) {
 
   return createPortal(
     <div className="pj-lb" role="dialog" aria-modal="true" aria-label={it.caption || "Project image"} onClick={onClose}>
-      <div className="pj-lb-box hud-panel" onClick={(e) => e.stopPropagation()}>
+      <div className="pj-lb-box glob-panel" onClick={(e) => e.stopPropagation()}>
         <Corners />
         <img src={it.src} alt={it.alt || it.caption || ""} draggable="false" />
         <div className="pj-lb-bar">
-          <span className="hud-label t">{it.caption}</span>
-          <span className="hud-label"><b>{state.i + 1}</b> / {state.items.length}</span>
+          <span className="glob-label t">{it.caption}</span>
+          <span className="glob-label"><b>{state.i + 1}</b> / {state.items.length}</span>
           <button type="button" onClick={() => onStep(-1)}>PREV</button>
           <button type="button" onClick={() => onStep(1)}>NEXT</button>
           <button type="button" ref={closeRef} onClick={onClose}>CLOSE</button>
@@ -56,7 +56,7 @@ function Detail({ p, index, total, onOpen }) {
   return (
     <div className="pj-detail">
       <div
-        className="hud-display pj-num glitch"
+        className="glob-display pj-num glitch"
         data-text={pad(index + 1)}
         style={{ "--g-dur": "9s" }}
         aria-hidden="true"
@@ -66,19 +66,19 @@ function Detail({ p, index, total, onOpen }) {
 
       <header className="pj-dhead">
         {meta && <div className="pj-meta">{meta}</div>}
-        <h3 className="hud-display pj-name glitch" data-text={p.name} style={{ "--g-dur": "9s" }}>{p.name}</h3>
+        <h3 className="glob-display pj-name glitch" data-text={p.name} style={{ "--g-dur": "9s" }}>{p.name}</h3>
         {p.tagline && <p className="pj-tagline">{p.tagline}</p>}
-        <p className="pj-desc">{p.desc}</p>
+        <p className="glob-manifesto">{p.desc}</p>
 
         {(p.link || p.repo) && (
           <div className="pj-actions">
             {p.link && (
-              <a className="hud-btn primary" href={p.link} target="_blank" rel="noopener noreferrer">
+              <a className="glob-btn primary" href={p.link} target="_blank" rel="noopener noreferrer">
                 VIEW PROJECT <span className="sr-only"> (opens in a new tab)</span>
               </a>
             )}
             {p.repo && (
-              <a className="hud-btn ghost" href={p.repo} target="_blank" rel="noopener noreferrer">
+              <a className="glob-btn ghost" href={p.repo} target="_blank" rel="noopener noreferrer">
                 SOURCE CODE <span className="sr-only"> (opens in a new tab)</span>
               </a>
             )}
@@ -97,7 +97,7 @@ function Detail({ p, index, total, onOpen }) {
               aria-label={`Open image: ${im.caption || p.name}`}
             >
               <img src={im.src} alt={im.alt || im.caption || ""} loading="lazy" draggable="false" />
-              {im.caption && <span className="hud-label pj-cap">{im.caption}</span>}
+              {im.caption && <span className="glob-label pj-cap">{im.caption}</span>}
             </button>
           ))}
         </div>
@@ -105,11 +105,11 @@ function Detail({ p, index, total, onOpen }) {
 
       {p.stack?.length > 0 && (
         <ul className="pj-stack" aria-label="Tech stack">
-          {p.stack.map((s) => <li key={s} className="hud-chip">{s}</li>)}
+          {p.stack.map((s) => <li key={s} className="glob-chip">{s}</li>)}
         </ul>
       )}
 
-      <div className="pj-foot hud-label" aria-hidden="true">
+      <div className="pj-foot glob-label" aria-hidden="true">
         <span>PROJECT {pad(index + 1)} / {pad(total)}</span>
         <span className="dots"><i /><i /><i /></span>
       </div>
@@ -139,24 +139,24 @@ const ProjectsSection = () => {
   };
 
   return (
-    <section id="projects" className="hud pj">
-      {/* <div className="hud-grid" aria-hidden="true" />
-      <div className="hud-beam" aria-hidden="true" />
-      <div className="hud-ghost" aria-hidden="true">04</div>
-      <span className="hud-meta tl" aria-hidden="true">Section <b>04</b></span>
-      <span className="hud-meta tr" aria-hidden="true">Rev 2026.10</span>
-      <span className="hud-meta bl" aria-hidden="true">Index // Builds</span>
-      <span className="hud-meta br" aria-hidden="true">Repo · <b>Online</b></span> */}
+    <section id="projects" className="glob pj">
+      {/* <div className="glob-grid" aria-hidden="true" />
+      <div className="glob-beam" aria-hidden="true" />
+      <div className="glob-ghost" aria-hidden="true">04</div>
+      <span className="glob-meta tl" aria-hidden="true">Section <b>04</b></span>
+      <span className="glob-meta tr" aria-hidden="true">Rev 2026.10</span>
+      <span className="glob-meta bl" aria-hidden="true">Index // Builds</span>
+      <span className="glob-meta br" aria-hidden="true">Repo · <b>Online</b></span> */}
 
       <div className="pj-inner">
         <Reveal>
           <div className="pj-head">
-            <div className="hud-eyebrow">
+            <div className="glob-eyebrow">
               <span className="ln" /><span className="dia" />
               <span> PROJECTS</span>
               <span className="dia" /><span className="ln" />
             </div>
-            <h2 className="hud-display pj-h2">
+            <h2 className="glob-display pj-h2">
               {HEADING.map((text, i) => (
                 <span
                   key={text}
@@ -168,8 +168,8 @@ const ProjectsSection = () => {
                 </span>
               ))}
             </h2>
-            <div className="hud-sub" aria-hidden="true">
-              <i /> <b>{pad(total)}</b> PROJECTS INDEXED
+            <div className="glob-sub" aria-hidden="true">
+               <b>{pad(total)}</b> PROJECTS INDEXED
             </div>
           </div>
         </Reveal>
@@ -202,9 +202,9 @@ const ProjectsSection = () => {
               ))}
             </div>
 
-            <div id="pj-panel" role="tabpanel" aria-labelledby={`pj-tab-${sel}`} className="hud-hairline pj-panel">
+            <div id="pj-panel" role="tabpanel" aria-labelledby={`pj-tab-${sel}`} className="glob-hairline pj-panel">
               <Ticks />
-              <div className="hud-sheen" aria-hidden="true" />
+              <div className="glob-sheen" aria-hidden="true" />
               <Detail key={sel} p={p} index={sel} total={total} onOpen={openLb} />
             </div>
           </div>
