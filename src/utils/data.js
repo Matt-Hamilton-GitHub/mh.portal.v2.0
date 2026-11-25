@@ -95,15 +95,15 @@ export const EXPERIENCE = [
 // ];
 export const PROJECTS = [
   {
-    name: "Cabinly",
+    name: "TravelGO",
     tagline:
       "A full-stack adventure travel marketplace with AI-powered search.",
     year: "2025",
     status: "Live",
     role: "Solo project",
-    desc: "Cabinly is an end-to-end travel platform where users discover handpicked destinations, book cabins, sign up for guided activities, and earn Summit Points on every adventure. Built with a custom JWT authentication system using HTTP-only cookies, a two-layer data architecture separating session identity (context) from server state (React Query), and an atomic booking flow that decrements cabin and activity availability with automatic rollback on failure. Features a MongoDB TTL-based booking expiry system with Change Streams for automatic cleanup, a Resend email confirmation flow with signed JWT links, a gamification system with four membership tiers and a 15-medal achievement shelf, and an AI-powered destination search that takes a natural language prompt and returns ranked place matches using the Claude API.",
-    link: "https://cabinly-matt-60eb.vercel.app/",
-    repo: "https://github.com/Matt-Hamilton-GitHub/cabinly",
+    desc: "TravelGO is an end-to-end travel platform where users discover handpicked destinations, book cabins, sign up for guided activities, and earn Summit Points on every adventure. Built with a custom JWT authentication system using HTTP-only cookies, a two-layer data architecture separating session identity (context) from server state (React Query), and an atomic booking flow that decrements cabin and activity availability with automatic rollback on failure. Features a MongoDB TTL-based booking expiry system with Change Streams for automatic cleanup, a Resend email confirmation flow with signed JWT links, a gamification system with four membership tiers and a 15-medal achievement shelf, and an AI-powered destination search that takes a natural language prompt and returns ranked place matches using the Claude API.",
+    link: "https://www.travel-go.space/",
+    repo: "https://github.com/Matt-Hamilton-GitHub/travelgo",
     images: [
       // {
       //   src: "/img/cabinly-hero.png",
